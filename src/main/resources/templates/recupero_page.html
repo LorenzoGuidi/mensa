@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Recupero Password</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Aggiunto il tag viewport per la responsività -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f7f7f7;
+        }
+
+        main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .recupero-form {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+        }
+
+        .recupero-form h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .recupero-form label {
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .recupero-form input[type="email"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        .recupero-form input[type="submit"] {
+            width: 100%;
+            padding: 12px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.2s ease-in-out;
+        }
+
+        .recupero-form input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        /* Regole responsive per dispositivi di larghezza inferiore a 576px (es. smartphone) */
+        @media (max-width: 576px) {
+            .recupero-form {
+                padding: 20px;
+            }
+
+            .recupero-form h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+<main>
+    <div class="container"> <!-- Aggiunto il container di Bootstrap -->
+        <div class="recupero-form">
+            <h1>Recupero Password</h1>
+            <form action="/recuperopsw" method="post">
+                <div class="form-group"> <!-- Aggiunta la classe "form-group" di Bootstrap -->
+                    <label for="email">Email:</label>
+                    <input type="email" class="form-control" id="email" name="email" required> <!-- Aggiunta la classe "form-control" di Bootstrap -->
+                </div>
+                <input type="submit" class="btn btn-primary" value="Recupero"> <!-- Aggiunta la classe "btn btn-primary" di Bootstrap -->
+            </form>
+        </div>
+    </div>
+</main>
+</body>
+</html>

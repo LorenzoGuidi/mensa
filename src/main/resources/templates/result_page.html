@@ -1,0 +1,81 @@
+<!--<!DOCTYPE html>-->
+<!--<html xmlns:th="http://www.thymeleaf.org">-->
+<!--<head>-->
+<!--  <meta charset="UTF-8">-->
+<!--  <title>Titolo della pagina</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--  <ul>-->
+<!--    <li th:each="alunno : ${alunni}">-->
+<!--      <span th:text="${alunno.id + '-' + alunno.codiceFiscale}"></span>-->
+<!--      <form th:action="@{/delete/{id}(id=${alunno.id})}" method="post">-->
+<!--        <input type="hidden" name="id" th:value="${alunno.id}" />-->
+<!--        <input type="hidden" name="codice" th:value="${alunno.codiceFiscale}" />-->
+<!--        <button type="submit">Elimina</button>-->
+<!--      </form>-->
+<!--       <form th:action="@{/modifica/{id}(id=${alunno.id})}" method="get">-->
+<!--  <button type="submit">-->
+<!--    Modifica-->
+<!--  </button>  -->
+<!--</form>-->
+<!--    </li>-->
+<!--  </ul>-->
+<!--</body>-->
+<!--</html>-->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Titolo della pagina</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f7f7f7;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    li {
+      background-color: #fff;
+      border-radius: 5px;
+      padding: 10px;
+      margin: 5px 0;
+      box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    li:hover {
+      background-color: #f2f2f2;
+    }
+
+    .alunno-details {
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    .alunno-id {
+      color: #007bff;
+    }
+
+    .alunno-codiceFiscale {
+      color: #007bff;
+    }
+  </style>
+</head>
+<body>
+  <h1>Lista delle iscrizioni con arretrati</h1>
+  <ul>
+    <li th:each="alunno : ${alunni}">
+      <span class="alunno-details" th:text="${'Arretrati: ' + alunno.differenzaPasti + ' - ID: ' + alunno.id + ' - Nome Richiedente: ' + alunno.nomeRichiedente+ ' - Cognome Richiedente: ' + alunno.cognomeRichidente}"></span>
+      
+      <a th:href="'mailto:' + ${alunno.email}"><span class="alunno-id" th:text="${alunno.email}"></span></a>
+      <span class="alunno-codiceFiscale" th:text="${alunno.telefono+ ' / ' + alunno.telefonoCell}"></span>
+    </li>
+  </ul>
+</body>
+</html>

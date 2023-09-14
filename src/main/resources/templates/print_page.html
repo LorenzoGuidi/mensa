@@ -1,0 +1,134 @@
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<head>-->
+<!--<meta charset="UTF-8">-->
+<!--<title>Insert title here</title>-->
+<!--</head>-->
+<!--<body>-->
+
+
+
+
+<!--    <span th:text="${alunno.nome} + ' | ' + ${alunno.id} + ' | ' + ${alunno.codiceFiscale} + ' | ' + ${alunno.sesso} + ' | ' + ${alunno.cognome} + ' | ' + ${alunno.dataNascita} + ' | ' + ${alunno.luogoNascita} + ' | ' + ${alunno.gradoScuola} + ' | ' + ${alunno.sedeScolastica} + ' | ' + ${alunno.sezioneScuola} + ' | ' + ${alunno.iscritto} + ' | ' + ${alunno.nomeRichiedente} + ' | ' + ${alunno.cognomeRichiedente} + ' | ' + ${alunno.luogoNascitaRichiedente} + ' | ' + ${alunno.dataNascitaRichiedente} + ' | ' + ${alunno.indirizzoRichiedente} + ' | ' + ${alunno.civicoRichiedente} + ' | ' + ${alunno.comune} + ' | ' + ${alunno.cap} + ' | ' + ${alunno.provincia} + ' | ' + ${alunno.telefono} + ' | ' + ${alunno.telefonoCell} + ' | ' + ${alunno.email}"></span>-->
+
+    
+<!--    <style>-->
+
+<!--</style>-->
+
+<!--<a href="#" onclick="window.print();" class="no-print">Stampa</a>-->
+
+    
+    
+   
+
+<!--</body>-->
+<!--</html>-->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Dettagli Alunno</title>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <style>
+		
+		@media print {
+  			.no-print {
+    		display: none !important;
+  		}
+}
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f7f7f7;
+            padding: 20px;
+        }
+
+        .details-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .details-container h2 {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .details-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .details-item {
+            margin-bottom: 10px;
+        }
+
+        .details-item label {
+            font-weight: bold;
+        }
+
+        .no-print {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .no-print a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .no-print a:hover {
+            background-color: #0056b3;
+        }
+        @media (max-width: 768px) {
+            .details-container {
+                padding: 10px;
+            }
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="details-container">
+        <h2>Dettagli Alunno</h2>
+        <ul class="details-list">
+            <li class="details-item"><label>Nome:</label> <span th:text="${alunno.nome}"></span></li>
+            <li class="details-item"><label>ID:</label> <span th:text="${alunno.id}"></span></li>
+            <li class="details-item"><label>Codice Fiscale:</label> <span th:text="${alunno.codiceFiscale}"></span></li>
+            
+            <li class="details-item"><label>Cognome:</label> <span th:text="${alunno.cognome}"></span></li>
+            <li class="details-item"><label>Data di Nascita:</label> <span th:text="${alunno.dataNascita}"></span></li>
+            <li class="details-item"><label>Luogo di Nascita:</label> <span th:text="${alunno.luogoNascita}"></span></li>
+            <li class="details-item"><label>Grado Scuola:</label> <span th:text="${alunno.gradoScuola}"></span></li>
+            <li class="details-item"><label>Sede Scolastica:</label> <span th:text="${alunno.sedeScolastica}"></span></li>
+            <li class="details-item"><label>Sezione Scuola:</label> <span th:text="${alunno.sezioneScuola}"></span></li>
+            
+            <li class="details-item"><label>Nome Richiedente:</label> <span th:text="${alunno.nomeRichiedente}"></span></li>
+            <li class="details-item"><label>Cognome Richiedente:</label> <span th:text="${alunno.cognomeRichidente}"></span></li>
+            <li class="details-item"><label>Luogo Nascita Richiedente:</label> <span th:text="${alunno.luogoNascitaRichidente}"></span></li>
+            <li class="details-item"><label>Data Nascita Richiedente:</label> <span th:text="${alunno.dataNascitaRichidente}"></span></li>
+            <li class="details-item"><label>Indirizzo Richiedente:</label> <span th:text="${alunno.indirizzoRichidente}"></span></li>
+            <li class="details-item"><label>Civico Richiedente:</label> <span th:text="${alunno.civicoRichidente}"></span></li>
+            <li class="details-item"><label>Comune:</label> <span th:text="${alunno.comune}"></span></li>
+            <li class="details-item"><label>CAP:</label> <span th:text="${alunno.cap}"></span></li>
+            <li class="details-item"><label>Provincia:</label> <span th:text="${alunno.provincia}"></span></li>
+            <li class="details-item"><label>Telefono:</label> <span th:text="${alunno.telefono}"></span></li>
+            <li class="details-item"><label>Telefono Cellulare:</label> <span th:text="${alunno.telefonoCell}"></span></li>
+            <li class="details-item"><label>Email:</label> <span th:text="${alunno.email}"></span></li>
+        </ul>
+
+        <a href="#" onclick="window.print();" class="no-print">Stampa</a>
+    </div>
+</body>
+</html>

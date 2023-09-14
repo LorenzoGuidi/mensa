@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+        integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+        crossorigin="anonymous" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400&display=swap"
+        rel="stylesheet">
+
+    <title>User Page</title>
+
+    <!-- Your existing CSS style -->
+    <style>
+        body {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            line-height: 1.42857143;
+            color: #333;
+            background-color: #f0f1ec;
+        }
+        
+     /* Aggiungiamo qualche stile alla lista degli alunni */
+   		 .list-group-item {
+        	border-radius: 10px; /* Rendi gli elementi della lista con i bordi arrotondati */
+        	margin-bottom: 10px; /* Aggiungi uno spazio tra gli elementi della lista */
+        	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Aggiungi una leggera ombreggiatura */
+    	}
+
+        .list-group-scrollable {
+            max-height: 300px;
+            /* Adjust the height as per your preference */
+            overflow-y: auto;
+        }
+
+        .list-group-item-content {
+            display: flex;
+            align-items: center;
+        }
+
+        /* New styles for the print button */
+        .list-group-item-icons {
+            display: flex;
+            gap: 5px;
+            justify-content: flex-end; /* Align the buttons to the right */
+        }
+
+        .list-group-item-icons button {
+            font-size: 12px;
+            /* Adjust the font size to make the icons smaller */
+            background-color: #d8a800; /* Yellow-ochre background color */
+            color: #fff; /* White text color */
+        }
+
+        /* Style the Logout button with a red background */
+        .btn-container .btn-logout {
+            background-color: #ff0000; /* Red background color */
+            color: #fff; /* White text color */
+            border-radius: 5px; /* Rendi i bottoni con i bordi arrotondati */
+        	font-size: 16px; /* Aumenta la dimensione del font dei bottoni */
+        }
+        
+        /* Style the "Nuova Iscrizione" button with the same color as before */
+        .btn-container .btn-new-iscrizione {
+            background-color: #007bff; /* Blue background color */
+            color: #fff; /* White text color */
+            border-radius: 5px; /* Rendi i bottoni con i bordi arrotondati */
+        	font-size: 16px; /* Aumenta la dimensione del font dei bottoni */
+        }
+ 
+
+        .alunno-item {
+            cursor: pointer;
+            transition: box-shadow 0.2s;
+        }
+
+        .alunno-item:hover {
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Custom styles */
+        .header {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .header h1 {
+            color: #333;
+        }
+
+        .page-title {
+            font-size: 24px;
+            font-weight: 700;            
+            color: #007bff; /* Cambia il colore del titolo in blu */
+        	margin-top: 0; /* Rimuovi il margine superiore per ridurre lo spazio tra l'header e il titolo */
+        }
+
+        .student-list {
+            margin-top: 30px;
+        }
+
+        .btn-container {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 10px; /* Add some margin to separate from the student list */
+        }
+
+        .btn-container button {
+            margin-left: 10px;
+        }
+
+        /* Optional: Add more styling for the student list items and buttons */
+        .list-group-item-action {
+            border: none;
+            background-color: #f0f0f0;
+            font-size: 16px; /* Aggiungiamo la dimensione del font desiderata (16px) */
+        }
+
+        .list-group-item-action:hover {
+            background-color: #b1d8f9;
+        }
+            /* Stilizziamo il bordo della tabella */
+    	.table-bordered {
+        	border: 1px solid #ddd; /* Aggiungi un bordo grigio alla tabella */
+    	}
+
+        /* Add a bit of margin to the table */
+        .table-container {
+            margin-top: 20px; /* Sposta la tabella più in basso */
+        	padding: 10px; /* Aggiungi un po' di spazio interno */
+        	border-radius: 5px; /* Rendi il contenitore della tabella con i bordi arrotondati */
+        	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Aggiungi una leggera ombreggiatura */
+        	background-color: #fff; /* Cambia il colore dello sfondo della tabella in bianco */
+        }
+        /* Add box-shadow to the buttons on hover */
+		.btn-container .btn-logout:hover,
+		.btn-container .btn-new-iscrizione:hover {
+    		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+		}
+		
+		.table {
+    width: 100%; /* Imposta la larghezza della tabella al 100% del contenitore */
+	border: 2px solid #d8a800; /* Cambia il colore del bordo in giallo ocra */
+    border-collapse: collapse; /* Unisci i bordi delle celle per una maggiore coerenza */
+    margin-top: 20px; /* Spazio superiore tra la lista degli alunni e la tabella */
+}
+
+/* Stilizza l'intestazione della tabella */
+.table thead {
+    background-color: #007bff; /* Colore di sfondo blu per l'intestazione */
+    color: #fff; /* Colore del testo bianco per l'intestazione */
+    font-size: 18px; /* Dimensione del testo aumentata */
+    font-weight: bold; /* Testo in grassetto */
+}
+
+/* Stilizza le celle del corpo della tabella */
+.table tbody td {
+    border: 2px solid #ddd; /* Aggiungi bordi alle celle con colore grigio */
+    padding: 10px; /* Aggiungi spazio interno per migliorare l'aspetto */
+    font-size: 16px; /* Dimensione del testo aumentata */
+}
+
+/* Opzionale: Stilizza il primo cell del corpo della tabella in grassetto */
+.table tbody td:first-child {
+    font-weight: bold;
+}
+
+/* Opzionale: Cambia il colore delle righe alterne per migliorare la leggibilità */
+.table tbody tr:nth-child(odd) {
+    background-color: #f0f0f0;
+}
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="page-title">Benvenuto/a <span th:text="${session.username}"></span></h1>
+            <!-- Optionally, you can add a welcome message here -->
+        </div>
+
+        <div class="row student-list">
+            <div class="col-md-12">
+                <ul class="list-group list-group-scrollable">
+                    <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
+                        th:each="a : ${alunni}" data-id="${a.id}"
+                        th:attr="data-dovuto-utente=${a.dovutoUtente != null and a.dovutoUtente != '' ? a.dovutoUtente : '0'}, 
+                         data-pagato-utente=${a.pagatoUtente != null and a.pagatoUtente != '' ? a.pagatoUtente : '0'}, 
+                         data-residuo-utente=${a.residuoUtente != null and a.residuoUtente != '' ? a.residuoUtente : '0'}">
+
+                        <div class="list-group-item-icons">
+                            <form action="/stampa_id" method="post" class="d-inline-block">
+                                <input type="hidden" name="id" th:value="${a.id}">
+                                <button type="submit" class="btn btn-primary btn-sm">
+                                    <i class="material-icons" style="font-size: 16px;">print</i>
+                                </button>
+                            </form>
+                            <!-- Add an empty span for extra space -->
+                            <span>&nbsp;</span>
+                            <!-- Bottone per i dettagli (colore arancione) -->
+                            <!-- You can add more buttons or customize the buttons here -->
+                        </div>
+                      <span class="flex-grow-1" th:inline="text">
+         				<strong>Bambino/a:</strong> [[${a.cognome}]] [[${a.nome}]] [[${a.codiceFiscale}]]
+    					<br><strong>Data di nascita:</strong> [[${a.dataNascita}]]
+   						<br><strong>Richiedente:</strong> [[${a.cognomeRichidente}]] [[${a.nomeRichiedente}]]
+					  </span>  
+                      </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="btn-container">
+            <form action="/form_page" class="d-inline-block">
+                <button type="submit" class="btn btn-primary btn-new-iscrizione">Nuova Iscrizione</button>
+            </form>
+            <form action="/logout" method="post" class="d-inline-block">
+                <button type="submit" class="btn btn-primary btn-logout">Logout</button>
+            </form>
+        </div>
+
+        <!-- Empty table area -->
+        <div class="row">
+            <div class="col-md-12">
+				<div id="table-container" class="table-container"></div>
+            </div>
+        </div>
+    </div>
+
+    <script th:inline="javascript">
+        /*<![CDATA[*/
+
+        // Function to create and display the table
+        function showTable(item) {
+            // Create the table element
+            var table = document.createElement("table");
+            table.classList.add("table", "table-bordered");
+
+            // Create the table header row
+            var headerRow = table.insertRow();
+            var headers = ["Dovuto Utente (€)", "Pagato Utente (€)", "Residuo Utente (€)"];
+            headers.forEach(function (headerText) {
+                var headerCell = document.createElement("th");
+                headerCell.textContent = headerText;
+                headerRow.appendChild(headerCell);
+            });
+
+            // Create and populate the table data rows
+            var dataRow = table.insertRow();
+            var dovutoCell = dataRow.insertCell();
+            var pagatoCell = dataRow.insertCell();
+            var residuoCell = dataRow.insertCell();
+
+            // Get the data from the item's data attributes
+            var dovutoUtente = parseFloat(item.getAttribute("data-dovuto-utente")) || 0;
+            var pagatoUtente = parseFloat(item.getAttribute("data-pagato-utente")) || 0;
+            var residuoUtente = parseFloat(item.getAttribute("data-residuo-utente")) || 0;
+
+            // Usa dovutoUtente, pagatoUtente e residuoUtente come desideri nel resto del tuo codice JavaScript
+            console.log("Il dovutoUtente è: ", dovutoUtente);
+            console.log("Il pagatoUtente è: ", pagatoUtente);
+            console.log("Il residuoUtente è: ", residuoUtente);
+
+            // Set the cell values with the updated data
+            dovutoCell.textContent = dovutoUtente;
+            pagatoCell.textContent = pagatoUtente;
+            residuoCell.textContent = residuoUtente;
+
+            // Show the table in the table-container
+            var tableContainer = document.getElementById("table-container");
+            tableContainer.innerHTML = ""; // Clear previous content
+            tableContainer.appendChild(table);
+        }
+
+        // Add click event listeners to alunno-item elements
+        var alunnoItems = document.querySelectorAll(".list-group-item-action");
+        alunnoItems.forEach(function (item) {
+            item.addEventListener("click", function () {
+                showTable(item);
+            });
+        });
+
+        /*]]>*/
+    </script>
+</body>
+
+</html>
+
+               

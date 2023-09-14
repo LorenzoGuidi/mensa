@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	
+	
+<style>
+  .grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Due colonne con larghezza uguale */
+    grid-gap: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .grid-container.label-left label {
+    text-align: left; /* Posiziona i label sul margine sinistro */
+  }
+  
+  .grid-container input {
+    width: 100%; /* Input si estende per riempire l'intera cella */
+  }
+  
+  /* Opzionale: Aggiungi bordi per creare una visualizzazione tabellare */
+  .grid-container {
+    border: 1px solid #ccc;
+    padding: 10px;
+  }
+  
+  .grid-container label,
+  .grid-container input {
+    border: none; /* Rimuovi bordi per label e input */
+    padding: 5px; /* Aggiungi spazio interno per label e input */
+  }
+  
+   .grid-container.checkbox-center input[type="checkbox"] {
+    justify-self: center; /* Allinea i checkbox al centro */
+  }
+  
+  .grid-container h2 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #000;
+    padding-bottom: 10px;
+  }
+  button {
+      display: block;
+      margin: 20px auto 0;
+      background-color: blue;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: blue;
+    }
+</style>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+	
+	<form  id="your-form" th:object="${alunno}" th:action="@{|/save|}" method="post">
+
+<div class="grid-container">
+  <h2>Dati alunno con dati scuola</h2>
+</div>
+
+
+<input type="hidden" id="id" name="id" th:value="${alunno.id}" />
+
+
+
+
+<div class="grid-container">
+    <label>Lunedì</label>
+    <input type="checkbox" th:field="*{giorni}" th:value="LUNEDI"/>
+    
+    <label>Martedì</label>
+    <input type="checkbox" th:field="*{giorni}" th:value="MARTEDI"/>
+    
+      <label>Mercoledì</label>
+    <input type="checkbox" th:field="*{giorni}" th:value="MERCOLEDI"/>
+    
+    <label>Giovedì</label>
+    <input type="checkbox" th:field="*{giorni}" th:value="GIOVEDI"/>
+    
+       <label>Venerdì</label>
+    <input type="checkbox" th:field="*{giorni}" th:value="VENERDI"/>
+</div>
+
+<div class="grid-container">
+  <label for="nome">Nome:</label>
+  <input type="text" id="nome" name="nome" th:value="${alunno.nome}" />
+</div>
+
+<div class="grid-container">
+  <label for="cognome">Cognome:</label>
+  <input type="text" id="cognome" name="cognome" th:value="${alunno.cognome}" />
+</div>
+
+<div class="grid-container">
+  <label for="codiceFiscale">Codice Fiscale:</label>
+  <input type="text" id="codiceFiscale" name="codiceFiscale" th:value="${alunno.codiceFiscale}" />
+</div>
+
+<div class="grid-container">
+  <label for="luogoNascita">Luogo di Nascita:</label>
+  <input type="text" id="luogoNascita" name="luogoNascita" th:value="${alunno.luogoNascita}" />
+</div>
+
+<!--<div class="grid-container">
+  <label for="sesso">Sesso:</label>
+  <input type="text" id="sesso" name="sesso" th:value="${alunno.sesso}" />
+</div> -->
+
+
+<div class="grid-container">
+  <label for="sesso">Sesso:</label>
+  <select id="sesso" name="sesso" th:field="*{sesso}">
+    <option value="M">M</option>
+    <option value="F">F</option>
+  </select>
+</div>
+
+<div class="grid-container">
+  <label for="sedeScolastica">Sede Scolastica:</label>
+  <input type="text" id="sedeScolastica" name="sedeScolastica" th:value="${alunno.sedeScolastica}" />
+</div>
+
+<div class="grid-container">
+  <label for="sezioneScuola">Sezione Scuola:</label>
+  <input type="text" id="sezioneScuola" name="sezioneScuola" th:value="${alunno.sezioneScuola}" />
+</div>
+
+<div class="grid-container checkbox-center">
+  <label for="iscritto">Iscritto:</label>
+  <input type="checkbox" id="iscritto" name="iscritto" th:value="${alunno.iscritto}" />
+</div>
+
+<div class="grid-container">
+  <label for="rientri">Rientri:</label>
+  <input type="text" id="rientri" name="rientri" th:value="${alunno.rientri}" />
+</div>
+
+<div class="grid-container checkbox-center">
+  <label for="fatturaOgniVolta">Fattura Ogni Volta:</label>
+  <input type="checkbox" id="fatturaOgniVolta" name="fatturaOgniVolta" th:checked="${alunno.fatturaOgniVolta}" />
+</div>
+
+
+
+
+<div class="grid-container">
+  <h2>rate</h2>
+</div>
+
+<div class="grid-container">
+  <label for="impPagato1">Importo Pagato 1:</label>
+  <input type="text" id="impPagato1" name="impPagato1" th:value="${alunno.impPagato1}" />
+</div>
+
+<div class="grid-container">
+  <label for="PastoPagato1">Pasto Pagato 1:</label>
+  <input type="text" id="PastoPagato1" name="PastoPagato1" th:value="${alunno.PastoPagato1}" />
+</div>
+
+<div class="grid-container">
+  <label for="dataPagamento1">Data Pagamento 1:</label>
+  <input type="date" id="dataPagamento1" name="dataPagamento1" th:value="${alunno.dataPagamento1}" />
+</div>
+  
+  
+  <div class="grid-container">
+  <label for="impPagato2">Importo Pagato 2:</label>
+  <input type="text" id="impPagato2" name="impPagato2" th:value="${alunno.impPagato2}" />
+</div>
+
+<div class="grid-container">
+  <label for="PastoPagato2">Pasto Pagato 2:</label>
+  <input type="text" id="PastoPagato2" name="PastoPagato2" th:value="${alunno.PastoPagato2}" />
+</div>
+
+<div class="grid-container">
+  <label for="dataPagamento2">Data Pagamento 2:</label>
+  <input type="date" id="dataPagamento2" name="dataPagamento2" th:value="${alunno.dataPagamento2}" />
+</div>
+
+<div class="grid-container">
+  <label for="impPagato3">Importo Pagato 3:</label>
+  <input type="text" id="impPagato3" name="impPagato3" th:value="${alunno.impPagato3}" />
+</div>
+
+<div class="grid-container">
+  <label for="PastoPagato3">Pasto Pagato 3:</label>
+  <input type="text" id="PastoPagato3" name="PastoPagato3" th:value="${alunno.PastoPagato3}" />
+</div>
+
+<div class="grid-container">
+  <label for="dataPagamento3">Data Pagamento 3:</label>
+  <input type="date" id="dataPagamento3" name="dataPagamento3" th:value="${alunno.dataPagamento3}" />
+</div>
+
+<div class="grid-container">
+  <label for="impPagato4">Importo Pagato 4:</label>
+  <input type="text" id="impPagato4" name="impPagato4" th:value="${alunno.impPagato4}" />
+</div>
+
+<div class="grid-container">
+  <label for="PastoPagato4">Pasto Pagato 4:</label>
+  <input type="text" id="PastoPagato4" name="PastoPagato4" th:value="${alunno.PastoPagato4}" />
+</div>
+
+<div class="grid-container">
+  <label for="dataPagamento4">Data Pagamento 4:</label>
+  <input type="date" id="dataPagamento4" name="dataPagamento4" th:value="${alunno.dataPagamento4}" />
+</div>
+
+
+
+<div class="grid-container">
+  <label for="impPagato5">Importo Pagato 5:</label>
+  <input type="text" id="impPagato5" name="impPagato5" th:value="${alunno.impPagato5}" />
+</div>
+
+<div class="grid-container">
+  <label for="PastoPagato5">Pasto Pagato 5:</label>
+  <input type="text" id="PastoPagato5" name="PastoPagato5" th:value="${alunno.PastoPagato5}" />
+</div>
+
+<div class="grid-container">
+  <label for="dataPagamento5">Data Pagamento 5:</label>
+  <input type="date" id="dataPagamento5" name="dataPagamento5" th:value="${alunno.dataPagamento5}" />
+</div>
+
+
+<div class="grid-container">
+  <h2>calcoli mensili</h2>
+</div>  
+
+<div class="grid-container">
+  <label for="presenzaOttobre">Presenza Ottobre:</label>
+  <input type="text" id="presenzaOttobre" name="presenzaOttobre" th:value="${alunno.presenzaOttobre}" />
+</div>
+
+<div class="grid-container">
+  <label for="quotaUtenteOttobre">Quota Utente Ottobre:</label>
+  <input type="text" id="quotaUtenteOttobre" name="quotaUtenteOttobre" th:value="${alunno.quotaUtenteOttobre}" />
+</div>
+
+<div class="grid-container">
+  <label for="dovutoUtenteOttobre">Dovuto Utente Ottobre:</label>
+  <input type="text" id="dovutoUtenteOttobre" name="dovutoUtenteOttobre" th:value="${alunno.dovutoUtenteOttobre}" />
+</div>
+
+
+<div class="grid-container">
+  <label for="quotaComuneOttobre">Quota Comune Ottobre:</label>
+  <input type="text" id="quotaComuneOttobre" name="quotaComuneOttobre" th:value="${alunno.quotaComuneOttobre}" />
+</div>
+
+
+<div class="grid-container">
+  <label for="dovutoComuneOttobre">Dovuto Comune Ottobre:</label>
+  <input type="text" id="dovutoComuneOttobre" name="dovutoComuneOttobre" th:value="${alunno.dovutoComuneOttobre}" />
+</div>
+
+<div class="grid-container">
+  <label for="presenzaNovembre">Presenza Novembre:</label>
+  <input type="text" id="presenzaNovembre" name="presenzaNovembre" th:value="${alunno.presenzaNovembre}" />
+</div>
+
+<div class="grid-container">
+  <label for="quotaUtenteNovembre">Quota Utente Novembre:</label>
+  <input type="text" id="quotaUtenteNovembre" name="quotaUtenteNovembre" th:value="${alunno.quotaUtenteNovembre}" />
+</div>
+
+<div class="grid-container">
+  <label for="dovutoUtenteNovembre">Dovuto Utente Novembre:</label>
+  <input type="text" id="dovutoUtenteNovembre" name="dovutoUtenteNovembre" th:value="${alunno.dovutoUtenteNovembre}" />
+</div>
+
+
+<div class="grid-container">
+  <label for="quotaComuneNovembre">Quota Comune Novembre:</label>
+  <input type="text" id="quotaComuneNovembre" name="quotaComuneNovembre" th:value="${alunno.quotaComuneNovembre}" />
+</div>
+
+<div class="grid-container">
+  <label for="dovutoComuneNovembre">Dovuto Comune Novembre:</label>
+  <input type="text" id="dovutoComuneNovembre" name="dovutoComuneNovembre" th:value="${alunno.dovutoComuneNovembre}" />
+</div>
+
+<div class="grid-container">
+  <label for="presenzaDicembre">Presenza Dicembre:</label>
+  <input type="text" id="presenzaDicembre" name="presenzaDicembre" th:value="${alunno.presenzaDicembre}" />
+</div>
+
+<div class="grid-container">
+  <label for="quotaUtenteDicembre">Quota Utente Dicembre:</label>
+  <input type="text" id="quotaUtenteDicembre" name="quotaUtenteDicembre" th:value="${alunno.quotaUtenteDicembre}" />
+</div>
+
+<div class="grid-container">
+  <label for="dovutoUtenteDicembre">Dovuto Utente Dicembre:</label>
+  <input type="text" id="dovutoUtenteDicembre" name="dovutoUtenteDicembre" th:value="${alunno.dovutoUtenteDicembre}" />
+</div>
+
+<div class="grid-container">
+  <label for="dovutoComuneDicembre">Dovuto Comune Dicembre:</label>
+  <input type="text" id="dovutoComuneDicembre" name="dovutoComuneDicembre" th:value="${alunno.dovutoComuneDicembre}" />
+</div>
+<div class="grid-container">
+  <label for="quotaComuneDicembre">Quota Comune Dicembre:</label>
+  <input type="text" id="quotaComuneDicembre" name="quotaComuneDicembre" th:value="${alunno.quotaComuneDicembre}" />
+</div>
+
+
+<div class="grid-container">
+  <label for="presenzaGennaio">Presenza Gennaio:</label>
+  <input type="text" id="presenzaGennaio" name="presenzaGennaio" th:value="${alunno.presenzaGennaio}" />
+</div>
+
+<div class="grid-container">
+  <label for="quotaUtenteGennaio">Quota Utente Gennaio:</label>
+  <input type="text" id="quotaUtenteGennaio" name="quotaUtenteGennaio" th:value="${alunno.quotaUtenteGennaio}" />
+</div>
+
+<div class="grid-container">
+  <label for="dovutoUtenteGennaio">Dovuto Utente Gennaio:</label>
+  <input type="text" id="dovutoUtenteGennaio" name="dovutoUtenteGennaio" th:value="${alunno.dovutoUtenteGennaio}" />
+</div>
+
+<div class="grid-container">
+  <label for="quotaComuneGennaio">Quota Comune Gennaio:</label>
+  <input type="text" id="quotaComuneGennaio" name="quotaComuneGennaio" th:value="${alunno.quotaComuneGennaio}" />
+</div>
+
+<div class="grid-container">
+  <label for="dovutoComuneGennaio">Dovuto Comune Gennaio:</label>
+  <input type="text" id="dovutoComuneGennaio" name="dovutoComuneGennaio" th:value="${alunno.dovutoComuneGennaio}" />
+</div>
+
+<div class="grid-container">
+  <label for="presenzaFebbraio">Presenza Febbraio:</label>
+  <input type="text" id="presenzaFebbraio" name="presenzaFebbraio" th:value="${alunno.presenzaFebbraio}" />
+</div>
+
+<div class="grid-container">
+  <label for="quotaUtenteFebbraio">Quota Utente Febbraio:</label>
+  <input type="text" id="quotaUtenteFebbraio" name="quotaUtenteFebbraio" th:value="${alunno.quotaUtenteFebbraio}" />
+</div>
+
+<div class="grid-container">
+  <label for="dovutoUtenteFebbraio">Dovuto Utente Febbraio:</label>
+  <input type="text" id="dovutoUtenteFebbraio" name="dovutoUtenteFebbraio" th:value="${alunno.dovutoUtenteFebbraio}" />
+</div>
+
+<div class="grid-container">
+  <label for="quotaComuneFebbraio">Quota Comune Febbraio:</label>
+  <input type="text" id="quotaComuneFebbraio" name="quotaComuneFebbraio" th:value="${alunno.quotaComuneFebbraio}" />
+</div>
+
+<div class="grid-container">
+  <label for="dovutoComuneFebbraio">Dovuto Comune Febbraio:</label>
+  <input type="text" id="dovutoComuneFebbraio" name="dovutoComuneFebbraio" th:value="${alunno.dovutoComuneFebbraio}" />
+</div>
+
+<!-- Campi Mancanti -->
+
+<div class="grid-container">
+  <label for="presenzaMarzo">Presenza Marzo:</label>
+  <input type="text" id="presenzaMarzo" name="presenzaMarzo" th:value="${alunno.presenzaMarzo}" />
+</div>
+
+<div class="grid-container">
+  <label for="quotaUtenteMarzo">Quota Utente Marzo:</label>
+  <input type="text" id="quotaUtenteMarzo" name="quotaUtenteMarzo" th:value="${alunno.quotaUtenteMarzo}" />
+</div>
+
+<div class="grid-container">
+  <label for="dovutoUtenteMarzo">Dovuto Utente Marzo:</label>
+  <input type="text" id="dovutoUtenteMarzo" name="dovutoUtenteMarzo" th:value="${alunno.dovutoUtenteMarzo}" />
+</div>
+
+<div class="grid-container">
+  <label for="quotaComuneMarzo">Quota Comune Marzo:</label>
+  <input type="text" id="quotaComuneMarzo" name="quotaComuneMarzo" th:value="${alunno.quotaComuneMarzo}" />
+</div>
+
+<div class="grid-container">
+  <label for="dovutoComuneMarzo">Dovuto Comune Marzo:</label>
+  <input type="text" id="dovutoComuneMarzo" name="dovutoComuneMarzo" th:value="${alunno.dovutoComuneMarzo}" />
+</div>
+
+<div class="grid-container">
+  <label for="presenzaAprile">Presenza Aprile:</label>
+  <input type="text" id="presenzaAprile" name="presenzaAprile" th:value="${alunno.presenzaAprile}" />
+</div>
+
+<div class="grid-container">
+  <label for="quotaUtenteAprile">Quota Utente Aprile:</label>
+  <input type="text" id="quotaUtenteAprile" name="quotaUtenteAprile" th:value="${alunno.quotaUtenteAprile}" />
+</div>
+
+<div class="grid-container">
+  <label for="dovutoUtenteAprile">Dovuto Utente Aprile:</label>
+  <input type="text" id="dovutoUtenteAprile" name="dovutoUtenteAprile" th:value="${alunno.dovutoUtenteAprile}" />
+</div>
+
+<div class="grid-container">
+  <label for="quotaComuneAprile">Quota Comune Aprile:</label>
+  <input type="text" id="quotaComuneAprile" name="quotaComuneAprile" th:value="${alunno.quotaComuneAprile}" />
+</div>
+
+<div class="grid-container">
+  <label for="dovutoComuneAprile">Dovuto Comune Aprile:</label>
+  <input type="text" id="dovutoComuneAprile" name="dovutoComuneAprile" th:value="${alunno.dovutoComuneAprile}" />
+</div>
+
+<div class="grid-container">
+  <label for="presenzaMaggio">Presenza Maggio:</label>
+  <input type="text" id="presenzaMaggio" name="presenzaMaggio" th:value="${alunno.presenzaMaggio}" />
+</div>
+
+<div class="grid-container">
+  <label for="quotaUtenteMaggio">Quota Utente Maggio:</label>
+  <input type="text" id="quotaUtenteMaggio" name="quotaUtenteMaggio" th:value="${alunno.quotaUtenteMaggio}" />
+</div>
+
+<div class="grid-container">
+  <label for="dovutoUtenteMaggio">Dovuto Utente Maggio:</label>
+  <input type="text" id="dovutoUtenteMaggio" name="dovutoUtenteMaggio" th:value="${alunno.dovutoUtenteMaggio}" />
+</div>
+
+<div class="grid-container">
+  <label for="quotaComuneMaggio">Quota Comune Maggio:</label>
+  <input type="text" id="quotaComuneMaggio" name="quotaComuneMaggio" th:value="${alunno.quotaComuneMaggio}" />
+</div>
+
+<div class="grid-container">
+  <label for="dovutoComuneMaggio">Dovuto Comune Maggio:</label>
+  <input type="text" id="dovutoComuneMaggio" name="dovutoComuneMaggio" th:value="${alunno.dovutoComuneMaggio}" />
+</div>
+
+<div class="grid-container">
+  <label for="presenzaGiugno">Presenza Giugno:</label>
+  <input type="text" id="presenzaGiugno" name="presenzaGiugno" th:value="${alunno.presenzaGiugno}" />
+</div>
+
+<div class="grid-container">
+  <label for="quotaUtenteGiugno">Quota Utente Giugno:</label>
+  <input type="text" id="quotaUtenteGiugno" name="quotaUtenteGiugno" th:value="${alunno.quotaUtenteGiugno}" />
+</div>
+
+<div class="grid-container">
+  <label for="dovutoUtenteGiugno">Dovuto Utente Giugno:</label>
+  <input type="text" id="dovutoUtenteGiugno" name="dovutoUtenteGiugno" th:value="${alunno.dovutoUtenteGiugno}" />
+</div>
+
+<div class="grid-container">
+  <label for="quotaComuneGiugno">Quota Comune Giugno:</label>
+  <input type="text" id="quotaComuneGiugno" name="quotaComuneGiugno" th:value="${alunno.quotaComuneGiugno}" />
+</div>
+
+<div class="grid-container">
+  <label for="dovutoComuneGiugno">Dovuto Comune Giugno:</label>
+  <input type="text" id="dovutoComuneGiugno" name="dovutoComuneGiugno" th:value="${alunno.dovutoComuneGiugno}" />
+</div>
+
+<div class="grid-container">
+  <h2>totali</h2>
+</div> 
+
+
+<div class="grid-container">
+  <label for="presenzeRegistrate">Presenze Registrate:</label>
+  <input type="text" id="presenzeRegistrate" name="presenzeRegistrate" th:value="${alunno.presenzeRegistrate}" />
+</div>
+
+<div class="grid-container">
+  <label for="pastiPagati">Pasti Pagati:</label>
+  <input type="text" id="pastiPagati" name="pastiPagati" th:value="${alunno.pastiPagati}" />
+</div>
+
+<div class="grid-container">
+  <label for="differenzaPasti">Differenza Pasti:</label>
+  <input type="text" id="differenzaPasti" name="differenzaPasti" th:value="${alunno.differenzaPasti}" />
+</div>
+
+<div class="grid-container">
+  <label for="quotaUtente">Quota Utente:</label>
+  <input type="text" id="quotaUtente" name="quotaUtente" th:value="${alunno.quotaUtente}" />
+</div>
+
+<div class="grid-container">
+  <label for="dovutoUtente">Dovuto Utente:</label>
+  <input type="text" id="dovutoUtente" name="dovutoUtente" th:value="${alunno.dovutoUtente}" />
+</div>
+
+<div class="grid-container">
+  <label for="pagatoUtente">Pagato Utente:</label>
+  <input type="text" id="pagatoUtente" name="pagatoUtente" th:value="${alunno.pagatoUtente}" />
+</div>
+
+<div class="grid-container">
+  <label for="residuoUtente">Residuo Utente:</label>
+  <input type="text" id="residuoUtente" name="residuoUtente" th:value="${alunno.residuoUtente}" />
+</div>
+
+
+<div class="grid-container">
+  <h2>dati richiedente</h2>
+</div>  
+
+
+<div class="grid-container">
+  <label for="nomeRichiedente">Nome Richiedente:</label>
+  <input type="text" id="nomeRichiedente" name="nomeRichiedente" th:value="${alunno.nomeRichiedente}" />
+</div>
+
+<div class="grid-container">
+  <label for="cognomeRichidente">Cognome Richiedente:</label>
+  <input type="text" id="cognomeRichidente" name="cognomeRichidente" th:value="${alunno.cognomeRichidente}" />
+</div>
+
+<div class="grid-container">
+  <label for="luogoNascitaRichidente">Luogo Nascita Richiedente:</label>
+  <input type="text" id="luogoNascitaRichidente" name="luogoNascitaRichidente" th:value="${alunno.luogoNascitaRichidente}" />
+</div>
+
+<p th:text="${alunno.dataNascitaRichidente}" />
+
+
+<div class="grid-container">
+  <label for="indirizzoRichidente">Indirizzo Richiedente:</label>
+  <input type="text" id="indirizzoRichidente" name="indirizzoRichidente" th:value="${alunno.indirizzoRichidente}" />
+</div>
+
+<div class="grid-container">
+  <label for="civicoRichidente">Civico Richiedente:</label>
+  <input type="text" id="civicoRichidente" name="civicoRichidente" th:value="${alunno.civicoRichidente}" />
+</div>
+
+<div class="grid-container">
+  <label for="comune">Comune:</label>
+  <input type="text" id="comune" name="comune" th:value="${alunno.comune}" />
+</div>
+
+<div class="grid-container">
+  <label for="cap">CAP:</label>
+  <input type="text" id="cap" name="cap" th:value="${alunno.cap}" />
+</div>
+
+<div class="grid-container">
+  <label for="provincia">Provincia:</label>
+  <input type="text" id="provincia" name="provincia" th:value="${alunno.provincia}" />
+</div>
+
+<div class="grid-container">
+  <label for="telefono">Telefono:</label>
+  <input type="text" id="telefono" name="telefono" th:value="${alunno.telefono}" />
+</div>
+
+<div class="grid-container">
+  <label for="telefonoCell">Telefono Cellulare:</label>
+  <input type="text" id="telefonoCell" name="telefonoCell" th:value="${alunno.telefonoCell}" />
+</div>
+
+<div class="grid-container">
+  <label for="email">Email:</label>
+  <input type="text" id="email" name="email" th:value="${alunno.email}" />
+</div>
+
+
+
+<div class="grid-container">
+  <label for="email">Username:</label>
+  <input type="text" id="u" name="username" th:value="${alunno.utente.username}" />
+</div>
+
+
+
+
+  <button type="button" onClick="showConfirmationPopup()">Salva</button>
+</form>
+
+<script>
+    function showConfirmationPopup() {
+        Swal.fire({
+            title: 'Sei sicuro/a?',
+            text: 'Stai per sottomettere la modifica',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Sono sicuro/a!',
+            cancelButtonText: 'Cancella'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                   showSuccessPopup();
+            }
+        });
+    }
+    
+        function showSuccessPopup() {
+        Swal.fire({
+            title: 'Successo!',
+            text: 'La modifica è avvenuta con successo.',
+            icon: 'success',
+            showConfirmButton: false,
+            timer: 2500
+            
+        }).then(() => {
+            document.getElementById('your-form').submit();
+        });
+    }
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,195 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en" dir="ltr">-->
+<!--<head>-->
+<!--    <meta charset="utf-8">-->
+<!--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">-->
+<!--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous"/>-->
+<!--    <link rel="preconnect" href="https://fonts.gstatic.com">-->
+<!--    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400&display=swap" rel="stylesheet">-->
+<!--    <link rel="stylesheet" href="/css/style.css">-->
+<!--    <title>Login</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<main>-->
+
+<!--     register -->
+<!--    <form action="/register" method="post">-->
+<!--        <input type="text" name="username">-->
+<!--        <input type="password" name="password">-->
+<!--        <input type="email" name="email">-->
+<!--        <input type="submit" value="register">-->
+<!--    </form>-->
+    
+<!--    <a href="/login">Hai già un account? Fai il login</a>-->
+
+<!--</main>-->
+
+<!--</body>-->
+<!--</html>-->
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Registrazione</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f7f7f7;
+        }
+
+        main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .register-form {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+        }
+
+        .register-form h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .register-form input[type="text"],
+        .register-form input[type="password"],
+        .register-form input[type="email"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        .register-form input[type="submit"] {
+            width: 100%;
+            padding: 12px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.2s ease-in-out;
+        }
+
+        .register-form input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        .register-form button[type="button"] {
+            width: 100%;
+            padding: 12px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.2s ease-in-out;
+        }
+
+        .register-form button[type="button"]:hover {
+            background-color: #0056b3;
+        }
+        .register-form button[type="submit"] {
+            width: 100%;
+            padding: 12px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.2s ease-in-out;
+        }
+
+        .register-form button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        
+
+        .register-form a {
+            display: block;
+            text-align: center;
+            margin-top: 15px;
+            color: #007bff;
+            text-decoration: none;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<main>
+    <div class="register-form">
+        <h2>Registrazione</h2>
+        <form action="/register" method="post" id="registrazione">
+            <input type="text" name="username" placeholder="Username" required>
+             <input type="text" name="nome" placeholder="nome" required>
+              <input type="text" name="cognome" placeholder="cognome" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <button type="button" onClick="showConfirmationPopup()">Registrati</button>
+        </form>
+        <a href="/login">Hai già un account? Fai il login</a>
+    </div>
+</main>
+<script>
+    function showConfirmationPopup() {
+        const form = document.getElementById('registrazione');
+        const formData = new FormData(form);
+
+        // Crea una stringa di query con i dati del form
+        const params = new URLSearchParams(formData).toString();
+
+        // Effettua una richiesta GET al server per verificare la disponibilità dei dati
+        fetch('/check-ava?' + params)
+        .then(response => response.json())
+        .then(data => {
+            if (data.error) {
+                // Mostra il messaggio di errore nel popup solo se ci sono dati già esistenti
+                Swal.fire({
+                    title: 'Errore nella registrazione',
+                    text: data.message,
+                    icon: 'error',
+                    showConfirmButton: true,
+                    confirmButtonText: 'Chiudi'
+                });
+            } else {
+                // Altrimenti, mostra il popup di conferma di registrazione
+                Swal.fire({
+                    title: 'Richiesta iscrizione effettuata',
+                    text: 'Controlla il tuo indirizzo di posta elettronica per completare la registrazione',
+                    icon: 'info',
+                    showConfirmButton: true,
+                    confirmButtonText: 'Ho capito'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        form.submit();
+                    }
+                });
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    }
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <h1>sei su admin page</h1>
+    
+    
+    <a href="/login_register"> aggiungi alunno</a>
+  
+<ul>
+  <li th:each="user : ${alunno}" th:text="${user.nome} + ' - ' + ${user.codiceFiscale}"></li>
+</ul>
+
+</head>
+<body>
+
+</body>
+</html>

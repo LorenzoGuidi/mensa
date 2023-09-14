@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Aggiunto il tag viewport per la responsività -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400&display=swap" rel="stylesheet">
+
+<title>Form Page</title>
+<h1>Modulo Iscrizione</h1>
+
+
+	    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        form {
+            margin-top: 20px;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        input,
+        textarea,
+        select {
+            display: block;
+            width: 100%;
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        textarea {
+            resize: vertical;
+            overflow-y: auto;
+        }
+     
+ .checkbox-group label {
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  .checkbox-group input[type="checkbox"] {
+    float: left;
+    margin-right: 5px;
+    
+
+  }
+
+  /* Dopo i checkbox, aggiungiamo un elemento vuoto con clear: both; per "pulire" il float */
+  .checkbox-group::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+        button {
+            display: block;
+            margin: 20px auto 0;
+            background-color: blue;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: blue;
+        }
+        .success-popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            z-index: 9999;
+            text-align: center;
+        }
+         #iscrivi[disabled] {
+    opacity: 0.6; /* Opacità ridotta quando il pulsante è disabilitato */
+    cursor: not-allowed; /* Cambia il cursore del mouse quando ci si passa sopra */
+  }
+  .parameter {
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.info-icon {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-color: lightgray;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 20px;
+  cursor: pointer;
+}
+
+.info-content {
+  display: none;
+  position: absolute;
+  top: 25px;
+  left: 0;
+  background-color: white;
+  border: 1px solid gray;
+  padding: 10px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+
+.giorni p{
+	
+	text-align: center;
+}
+    </style>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+
+
+
+
+<form id="your-form" th:object="${alunno}" th:action="@{|/iscrizione|}" method="post">
+    <label for="nome">Nome:</label>
+    <input type="text" id="nome" name="nome" th:value="${alunno.nome}" required/>
+
+    <label for="cognome">Cognome:</label>
+    <input type="text" id="cognome" name="cognome" th:value="${alunno.cognome}" required/>
+
+    <label for="codiceFiscale">Codice Fiscale:</label>
+    <input type="text" id="codiceFiscale" name="codiceFiscale" th:value="${alunno.codiceFiscale}" required/>
+    
+     <span id="erroreCodiceFiscale" style="color: red; display: none;">Codice fiscale non valido</span>
+
+    <label for="luogoNascita">Luogo di Nascita:</label>
+    <input type="text" id="luogoNascita" name="luogoNascita" th:value="${alunno.luogoNascita}" required/>
+
+<!--    <label for="sesso">Sesso:</label>-->
+<!--    <input type="text" id="sesso" name="sesso" th:value="${alunno.sesso}" required/>-->
+<label for="sesso">Sesso:</label>
+<select id="sesso" name="sesso" required>
+  <option value="M" th:selected="${alunno.sesso == 'M'}">Maschio</option>
+  <option value="F" th:selected="${alunno.sesso == 'F'}">Femmina</option>
+</select>
+
+    <label for="dataNascita">Data Nascita:</label>
+    <input type="date" id="dataNascita" name="dataNascita" th:value="${alunno.dataNascita}" required/>
+
+    <label for="gradoScuola">Grado Scuola:</label>
+    <input type="text" id="gradoScuola" name="gradoScuola" th:value="${alunno.gradoScuola}" required/>
+
+    <label for="sedeScolastica">Sede Scolastica:</label>
+    <input type="text" id="sedeScolastica" name="sedeScolastica" th:value="${alunno.sedeScolastica}" required/>
+
+    <label for="sezioneScuola">Sezione Scuola:</label>
+    <input type="text" id="sezioneScuola" name="sezioneScuola" th:value="${alunno.sezioneScuola}" required/>
+    
+    <div class="parameter">
+    
+    <span for="quotaUtente">Quota:</span>
+    	<span class="info-icon">?</span>
+     	<div class="info-content">
+    		Qui va inserito il valore calcolato in base al rapporto ISEE (3,20 o 4,00)
+    	</div>
+    </div>
+
+    
+    <input type="text" id="quotaUtente" name="quotaUtente" th:value="${alunno.quotaUtente}" required/>
+
+    <label for="rientri">Rientri:</label>
+    <input type="text" id="rientri" name="rientri" th:value="${alunno.rientri}" required/>
+
+    <label for="luogoNascitaRichiedente">Luogo Nascita Richiedente:</label>
+    <input type="text" id="luogoNascitaRichiedente" name="luogoNascitaRichiedente" th:value="${alunno.luogoNascitaRichidente}" required/>
+
+    <label for="indirizzoRichiedente">Indirizzo Richiedente:</label>
+    <input type="text" id="indirizzoRichiedente" name="indirizzoRichiedente" th:value="${alunno.indirizzoRichidente}" required/>
+
+    <label for="civicoRichiedente">Civico Richiedente:</label>
+    <input type="text" id="civicoRichiedente" name="civicoRichiedente" th:value="${alunno.civicoRichidente}" required/>
+
+    <label for="comune">Comune:</label>
+    <input type="text" id="comune" name="comune" th:value="${alunno.comune}" required/>
+
+    <label for="cap">CAP:</label>
+    <input type="text" id="cap" name="cap" th:value="${alunno.cap}" required/>
+
+    <label for="provincia">Provincia:</label>
+    <input type="text" id="provincia" name="provincia" th:value="${alunno.provincia}" required/>
+
+    <label for="telefono">Telefono:</label>
+    <input type="text" id="telefono" name="telefono" th:value="${alunno.telefono}" required/>
+
+    <label for="telefonoCell">Telefono Cellulare:</label>
+    <input type="text" id="telefonoCell" name="telefonoCell" th:value="${alunno.telefonoCell}" required/>
+
+
+
+    <h2>Giorni della Settimana:</h2>
+     <br>
+     
+     <div class="giorni">
+    <p>Lunedì</p>
+    <input type="checkbox" th:field="*{giorni}" th:value="LUNEDI"/>
+
+    <p>Martedì</p>
+    <input type="checkbox" th:field="*{giorni}" th:value="MARTEDI"/>
+
+    <p>Mercoledì</p>
+    <input type="checkbox" th:field="*{giorni}" th:value="MERCOLEDI"/>
+
+    <p>Giovedì</p>
+    <input type="checkbox" th:field="*{giorni}" th:value="GIOVEDI"/>
+
+    <p>Venerdì</p>
+    <input type="checkbox" th:field="*{giorni}" th:value="VENERDI"/>
+    </div> 
+    
+    <br>
+
+    <label for="privacy">Informativa sulla privacy:</label>
+    <textarea id="privacy" name="privacy" rows="5" readonly>
+I dati raccolti verranno trattati dalla Società Esperienze 84 e dal Comune di Poggio Mirteto con la sola finalità di gestire il servizio Refezione Scolastica. I dati non verranno trasmessi, venduti o saranno mai disponibili a Terzi o utilizzati per altre finalità. Inserendo una spunta su: Accetto l'informativa sulla privacy acconsento al trattamento dei miei dati personali e di tutti i dati inseriti nel Form di registrazione.
+
+    </textarea>
+    <p for="privacyOk">Accetto l'informativa sulla privacy</p>
+    <input type="checkbox" id="privacyOk" name="privacyOk" required/>
+
+    <button type="button"  id="iscrivi" onClick="showConfirmationPopup()" disabled>Iscrivi bambino</button>
+  </form>
+
+<!-- ... Your HTML code ... -->
+
+<script>
+    function showConfirmationPopup() {
+        const form = document.getElementById('your-form');
+        const formData = new FormData(form);
+        const requiredFields = document.querySelectorAll('[required]');
+        let allFieldsValid = true;
+
+        // Crea una stringa di query con i dati del form
+        const params = new URLSearchParams(formData).toString();
+         requiredFields.forEach(field => {
+            if (!field.value.trim()) {
+                allFieldsValid = false;
+                field.classList.add('invalid');
+            } else {
+                field.classList.remove('invalid');
+            }
+        });
+
+        if (!allFieldsValid) {
+            Swal.fire({
+                title: 'Campi obbligatori mancanti',
+                text: 'Assicurati di compilare tutti i campi obbligatori.',
+                icon: 'error',
+                showConfirmButton: true,
+                confirmButtonText: 'Ok'
+            });
+            return;
+        }
+
+        // Effettua una richiesta GET al server per verificare la disponibilità dei dati
+        fetch('/check-iscrizione?' + params)
+        .then(response => response.json())
+        .then(data => {
+            if (data.error) {
+                // Mostra il messaggio di errore nel popup solo se ci sono dati già esistenti
+                Swal.fire({
+                    title: 'Iscrizione non riuscita',
+                    text: 'Upload ancora non eseguito oppure alunno già registrato nel corrente anno accademico' ,
+                    icon: 'error',
+                    showConfirmButton: true,
+                    confirmButtonText: 'Chiudi'
+                });
+            } else {
+                // Altrimenti, mostra il popup di conferma di registrazione
+                Swal.fire({
+                    title: 'Iscrizione effettuata',
+                    text: 'Puoi controllare i dati sulla tua pagina personale',
+                    icon: 'info',
+                    showConfirmButton: true,
+                    confirmButtonText: 'Ho capito'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        form.submit();
+                    }
+                });
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+        
+
+       
+    }
+    
+      document.addEventListener('DOMContentLoaded', function() {
+    const codiceFiscaleInput = document.getElementById('codiceFiscale');
+    const erroreCodiceFiscale = document.getElementById('erroreCodiceFiscale');
+    const salvaButton = document.getElementById('iscrivi');
+
+    codiceFiscaleInput.addEventListener('input', function() {
+      const codiceFiscale = codiceFiscaleInput.value.trim();
+
+      // Implementa la tua logica di validazione del codice fiscale.
+      const isCodiceFiscaleValid = validateCodiceFiscale(codiceFiscale);
+
+      // Se il codice fiscale è valido, nascondi il messaggio di errore.
+      // Altrimenti, mostralo in rosso.
+      if (isCodiceFiscaleValid) {
+        erroreCodiceFiscale.style.display = 'none';
+        salvaButton.removeAttribute('disabled');
+      } else {
+        erroreCodiceFiscale.style.display = 'block';
+         salvaButton.setAttribute('disabled', 'true');
+      }
+    });
+
+    function validateCodiceFiscale(codiceFiscale) {
+      // Implementa qui la tua logica di validazione del codice fiscale.
+      // Puoi utilizzare espressioni regolari o altre verifiche per
+      // assicurarti che il codice fiscale sia corretto.
+      // Ritorna true se il codice fiscale è valido, altrimenti false.
+      // Esempio di validazione semplificata:
+     const codiceFiscalePattern = /^[A-Z0-9]{16}$/;
+   return codiceFiscalePattern.test(codiceFiscale);
+		
+  }
+  });
+  
+  
+  
+  document.addEventListener("DOMContentLoaded", function () {
+  const infoIcons = document.querySelectorAll(".info-icon");
+
+  infoIcons.forEach((icon) => {
+    icon.addEventListener("click", function () {
+      const infoContent = this.parentElement.querySelector(".info-content");
+      infoContent.style.display =
+        infoContent.style.display === "block" ? "none" : "block";
+    });
+  });
+});
+</script>
+
+<!-- ... Your HTML code ... -->
+
+
+</body>
+</html>
