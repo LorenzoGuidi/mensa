@@ -2,7 +2,7 @@ package com.example.mensa.model;
 
 public class ErrorePopup {
 	
-	boolean error = true;
+	boolean error = false;
 	
 	public boolean isError() {
 		return error;
