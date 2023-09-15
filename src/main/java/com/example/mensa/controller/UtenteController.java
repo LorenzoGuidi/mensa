@@ -415,6 +415,7 @@ public class UtenteController {
 	
 	    mav.setViewName("errore");
 	    */
+	    mav.setViewName("user_page");
 	    return mav;
 	    
 	    
