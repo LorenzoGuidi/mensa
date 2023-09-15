@@ -185,7 +185,7 @@ public class UtenteController {
 	        message.setFrom(env.getProperty("spring.mail.username"));
 	        message.setTo(rec.getParameterValues("email"));
 	        message.setSubject("Activation Mail System"); 
-	        String url = "http://babyfood-production.up.railway.app/conferma?token="+SIDTOKEN;
+	        String url = "https://mensapoggiomirteto.com//conferma?token="+SIDTOKEN;
 	        message.setText("Questo è il suo username : " + username + "/n" + "clicca qui per confermare la registrazione:\n" + url);
 
 	        
@@ -509,7 +509,7 @@ public class UtenteController {
 					rec.getSession();
 					session.setAttribute("token", SIDTOKEN);
 			        
-			        String url = "http://127.0.0.1:8080/recuperopsw_page?username="+username+"&token="+SIDTOKEN;
+			        String url = "https://mensapoggiomirteto.com/recuperopsw_page?username="+username+"&token="+SIDTOKEN;
 			        message.setText("clicca qui per cambiare la password:\n"+url);
 			        
 			        mailSender.send(message);
