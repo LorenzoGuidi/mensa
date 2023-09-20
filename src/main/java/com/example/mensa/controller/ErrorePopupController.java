@@ -60,7 +60,7 @@ public class ErrorePopupController {
 		    for (Alunno al : alunni) {
 		    
 		     if (!al.getCodiceFiscale().equals(codiceFiscale) || al.getDataIscrizione() != null) {
-		        	ep.setError(true);
+		        	ep.setError(false);
 		        
 		        }		   
 		    }		    
