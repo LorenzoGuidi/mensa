@@ -40,7 +40,7 @@ public class ErrorePopupController {
 		for(Utente u : utenti) {
 			if(u.getUsername().equals(username) || u.getEmail().equals(email)) {
 				ep.setError(true);
-				return ep;
+				
 			}
 				
 		}
@@ -59,7 +59,7 @@ public class ErrorePopupController {
 		    //caso upload admin
 		    for (Alunno al : alunni) {
 		    
-		     if (al.getCodiceFiscale().equals(codiceFiscale) && al.getDataIscrizione() != null) {
+		     if (()!al.getCodiceFiscale().equals(codiceFiscale)) ||( al.getDataIscrizione() != null)) {
 		        	ep.setError(true);
 		        
 		        }		   
