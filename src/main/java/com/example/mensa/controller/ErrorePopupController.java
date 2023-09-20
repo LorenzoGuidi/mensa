@@ -58,24 +58,24 @@ public class ErrorePopupController {
 		
 		    
 		    //caso upload admin
-		    for (Alunno al : alunni) {
-		    
-		     if (!al.getCodiceFiscale().equals(codiceFiscale) || al.getDataIscrizione() != null) {
-		        	ep.setError(true);
-		        
-		        }		   
-		    }		    
-	
-		    return ep;		 
 //		    for (Alunno al : alunni) {
-//		    	System.out.println("iterazione numero: " + al.getId());
-//		        if (al.getCodiceFiscale().equals(codiceFiscale) && al.getDataIscrizione() == null) 
-//		         ep.setError(false); 
-//		         else {
-//		        	 ep.setError(true);
-//			        return ep;
-//		         } 
-//		    }
-//			return ep;
+//		    
+//		     if (!al.getCodiceFiscale().equals(codiceFiscale) || al.getDataIscrizione() != null) {
+//		        	ep.setError(true);
+//		        
+//		        }		   
+//		    }		    
+	
+//		    return ep;		 
+	    for (Alunno al : alunni) {
+		    	System.out.println("iterazione numero: " + al.getId());
+		        if (al.getCodiceFiscale().equals(codiceFiscale) && al.getDataIscrizione() == null) 
+		         ep.setError(false); 
+		         else {
+		        	 ep.setError(true);
+			        return ep;
+		         } 
+		    }
+			return ep;
 	}
 }
