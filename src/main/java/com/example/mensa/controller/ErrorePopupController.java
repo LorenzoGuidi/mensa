@@ -55,27 +55,27 @@ public class ErrorePopupController {
 	ErrorePopup error2(@RequestParam String codiceFiscale) {
 		ErrorePopup ep = new ErrorePopup();
 		 List<Alunno> alunni = as.getAllAlunni();
-		
+		 
 		    
 		    //caso upload admin
-//		    for (Alunno al : alunni) {
-//		    
-//		     if (!al.getCodiceFiscale().equals(codiceFiscale) || al.getDataIscrizione() != null) {
-//		        	ep.setError(true);
-//		        
-//		        }		   
-//		    }		    
+		    for (Alunno al : alunni) {
+		    
+		     if (al.getCodiceFiscale().equals(codiceFiscale) && al.getDataIscrizione() != null) {
+		        	ep.setError(true);
+		        
+		        }		   
+		    }		    
 	
-//		    return ep;		 
-	    for (Alunno al : alunni) {
-		    	System.out.println("iterazione numero: " + al.getId());
-		        if (al.getCodiceFiscale().equals(codiceFiscale) && al.getDataIscrizione() == null) 
-		         ep.setError(false); 
-		         else {
-		        	 ep.setError(true);
-			        return ep;
-		         } 
-		    }
-			return ep;
+		    return ep;		 
+//		    for (Alunno al : alunni) {
+//		    	System.out.println("iterazione numero: " + al.getId());
+//		        if (al.getCodiceFiscale().equals(codiceFiscale) && al.getDataIscrizione() == null) 
+//		         ep.setError(false); 
+//		         else {
+//		        	 ep.setError(true);
+//			        return ep;
+//		         } 
+//		    }
+//			return ep;
 	}
 }

@@ -250,13 +250,13 @@ I dati raccolti verranno trattati dalla Società Esperienze 84 e dal Comune di P
     <p for="privacyOk">Accetto l'informativa sulla privacy</p>
     <input type="checkbox" id="privacyOk" name="privacyOk" required/>
 
-    <button type="button"  id="iscrivi" onClick="showConfirmationPopup()" disabled>Iscrivi bambino</button>
+    <button type="submit"  id="iscrivi" disabled>Iscrivi bambino</button>
   </form>
 
 <!-- ... Your HTML code ... -->
 
 <script>
-    function showConfirmationPopup() {
+   /* function showConfirmationPopup() {
         const form = document.getElementById('your-form');
         const formData = new FormData(form);
         const requiredFields = document.querySelectorAll('[required]');
@@ -294,10 +294,10 @@ I dati raccolti verranno trattati dalla Società Esperienze 84 e dal Comune di P
                     title: 'Iscrizione non riuscita',
                     text: 'Upload ancora non eseguito oppure alunno già registrato nel corrente anno accademico' ,
                     icon: 'error',
-                    showConfirmButton: true,
-                    confirmButtonText: 'Chiudi'
+                   showConfirmButton: true,
+                   confirmButtonText: 'Chiudi'
                 });
-            } else {
+           } else {
                 // Altrimenti, mostra il popup di conferma di registrazione
                 Swal.fire({
                     title: 'Iscrizione effettuata',
@@ -318,7 +318,7 @@ I dati raccolti verranno trattati dalla Società Esperienze 84 e dal Comune di P
         
 
        
-    }
+    }*/
    
       document.addEventListener('DOMContentLoaded', function() {
     const codiceFiscaleInput = document.getElementById('codiceFiscale');
