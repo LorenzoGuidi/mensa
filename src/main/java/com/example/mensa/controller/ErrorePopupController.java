@@ -55,7 +55,7 @@ public class ErrorePopupController {
 	ErrorePopup error2(@RequestParam String codiceFiscale) {
 		ErrorePopup ep = new ErrorePopup();
 		 List<Alunno> alunni = as.getAllAlunni();
-		 ep.setError(false);
+		
 		    
 		    //caso upload admin
 		    for (Alunno al : alunni) {
