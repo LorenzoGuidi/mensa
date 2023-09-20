@@ -59,7 +59,7 @@ public class ErrorePopupController {
 		    //caso upload admin
 		    for (Alunno al : alunni) {
 		    
-		     if ((!al.getCodiceFiscale().equals(codiceFiscale)) ||( al.getDataIscrizione() != null)) {
+		     if (!al.getCodiceFiscale().equals(codiceFiscale) || al.getDataIscrizione() != null) {
 		        	ep.setError(true);
 		        
 		        }		   
