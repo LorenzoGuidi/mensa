@@ -411,8 +411,8 @@ public class UtenteController {
          
 	    }
 	   
-	  /* mod.addAttribute("errorMessage" , "Upload ancora non eseguito o Alunno gia iscritto per quest'anno accademico, contattare l'admin");
-	
+	   mod.addAttribute("errorMessage" , "Upload ancora non eseguito o Alunno gia iscritto per quest'anno accademico, contattare l'admin");
+	   /*
 	    mav.setViewName("errore");
 	    */
 	    mav.setViewName("redirect:/errore");
