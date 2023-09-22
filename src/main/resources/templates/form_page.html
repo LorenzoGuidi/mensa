@@ -145,6 +145,9 @@
 
 
 <form id="your-form" th:object="${alunno}" th:action="@{|/iscrizione|}" method="post">
+	
+	<h2>Dati Alunno:</h2>
+	
     <label for="nome">Nome:</label>
     <input type="text" id="nome" name="nome" th:value="${alunno.nome}" required/>
 
@@ -193,6 +196,7 @@
 
     <label for="rientri">Rientri:</label>
     <input type="text" id="rientri" name="rientri" th:value="${alunno.rientri}" required/>
+    <h2>Dati Richiedente:</h2>
 
     <label for="luogoNascitaRichiedente">Luogo Nascita Richiedente:</label>
     <input type="text" id="luogoNascitaRichiedente" name="luogoNascitaRichiedente" th:value="${alunno.luogoNascitaRichidente}" required/>
