@@ -120,6 +120,8 @@ public class Alunno {
 	private double residuoUtente;
 	private String nomeRichiedente;
 	private String cognomeRichidente;
+	private String codiceFiscaleRichiedente;
+	
 	private String luogoNascitaRichidente;
 	private Date dataNascitaRichidente;
 	private String indirizzoRichidente;
@@ -141,7 +143,12 @@ public class Alunno {
 	
 	
 	
-	
+	public String getCodiceFiscaleRichiedente() {
+		return codiceFiscaleRichiedente;
+	}
+	public void setCodiceFiscaleRichiedente(String codiceFiscaleRichiedente) {
+		this.codiceFiscaleRichiedente = codiceFiscaleRichiedente;
+	}
 	
 	public String getAnnoAccademico() {
 		return annoAccademico;
