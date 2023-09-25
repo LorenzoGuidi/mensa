@@ -185,8 +185,8 @@ public class UtenteController {
 	        message.setFrom(env.getProperty("spring.mail.username"));
 	        message.setTo(rec.getParameterValues("email"));
 	        message.setSubject("Activation Mail System"); 
-	        String url = "https://mensapoggiomirteto.com/conferma?token="+SIDTOKEN;
-	        message.setText("Questo è il suo username : " + username + "\n" + "copia questo url sul tuo browser per confermare la registrazione:\n" + url);
+	        String url = "https://mensapoggiomirteto.com/conferma?token="+SIDTOKEN+"&username="+username;
+	        message.setText("Questo è il suo username : " + username + "\n" + "clicca per confermare la registrazione:\n" + url);
 
 	        
 	        mailSender.send(message);
@@ -262,13 +262,13 @@ public class UtenteController {
     public ModelAndView confermaEmail(HttpServletRequest rec,Model mod) {
     	
     	String token = rec.getParameter("token");
-    	
+    	String username = rec.getParameter("username");
     	
     	 session = rec.getSession();
     	 String tokenPreso = session.getAttribute("token").toString();
     	 if(tokenPreso.equals(token)) {
   
-    	     String username = session.getAttribute("username").toString();
+    		 
     	     Utente u = us.findByUsername(username);
     	     u.setConfermato(true);
     	     
