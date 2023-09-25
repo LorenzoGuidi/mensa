@@ -333,11 +333,9 @@ public class UtenteController {
 //    	String cognome = rec.getParameter("cognome");
 //    	String luogoNascita = rec.getParameter("luogoNascita");
     	String codiceFiscale = rec.getParameter("codiceFiscale");
-//    	String email= rec.getParameter("email");
-//    	String indirizzo = rec.getParameter("indirizzo");
-//    	String sedeScuola = rec.getParameter("sedeScuola");
-//    	String sezione = rec.getParameter("sezione");
-    	
+    	String luogoNascitaRichidente = rec.getParameter("luogoNascitaRichidente");
+    	String indirizzoRichidente = rec.getParameter("indirizzoRichidente");
+    	String civicoRichidente = rec.getParameter("civicoRichidente");
     
 //    	String dataNascita = rec.getParameter("dataNascita"); // Supponiamo che sia nel formato "AAAA-MM-GG"
 //    	// Parsa la stringa nel formato "AAAA-MM-GG" in un oggetto LocalDate
@@ -389,6 +387,9 @@ public class UtenteController {
 	                    field.set(al, value);
 	                }
 	            }
+	            al.setLuogoNascitaRichidente(luogoNascitaRichidente);
+	            al.setIndirizzoRichidente(indirizzoRichidente);
+	            al.setCivicoRichidente(civicoRichidente);
 	            al.setDataIscrizione(dataiscrizione);
 	            al.setAnnoAccademico(annoAccademico);
 	            al.setNomeRichiedente(u.getNome());

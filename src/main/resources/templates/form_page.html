@@ -205,11 +205,11 @@
 
     <label for="rientri">Rientri:</label>
     <select id="rientri" name="rientri" required>
-  		<option value="1" th:selected="${alunno.rientri == '1'}">Infanzia</option>
-  		<option value="2" th:selected="${alunno.rientri == '2'}">Primaria</option>
-  		<option value="3" th:selected="${alunno.rientri == '3'}">Secondaria</option>
-  		<option value="4" th:selected="${alunno.rientri == '4'}">Primaria</option>
-  		<option value="5" th:selected="${alunno.rientri == '5'}">Secondaria</option>
+  		<option value="1" th:selected="${alunno.rientri == '1'}">1</option>
+  		<option value="2" th:selected="${alunno.rientri == '2'}">2</option>
+  		<option value="3" th:selected="${alunno.rientri == '3'}">3</option>
+  		<option value="4" th:selected="${alunno.rientri == '4'}">4</option>
+  		<option value="5" th:selected="${alunno.rientri == '5'}">5</option>
 	</select>
    
     <h2>Dati Richiedente:</h2>
@@ -220,13 +220,13 @@
    
 
     <label for="luogoNascitaRichiedente">Luogo Nascita Richiedente:</label>
-    <input type="text" id="luogoNascitaRichiedente" name="luogoNascitaRichiedente" th:value="${alunno.luogoNascitaRichidente}" required/>
+    <input type="text" id="luogoNascitaRichiedente" name="luogoNascitaRichidente" th:value="${alunno.luogoNascitaRichidente}" required/>
 
     <label for="indirizzoRichiedente">Indirizzo Richiedente:</label>
-    <input type="text" id="indirizzoRichiedente" name="indirizzoRichiedente" th:value="${alunno.indirizzoRichidente}" required/>
+    <input type="text" id="indirizzoRichiedente" name="indirizzoRichidente" th:value="${alunno.indirizzoRichidente}" required/>
 
     <label for="civicoRichiedente">Civico Richiedente:</label>
-    <input type="text" id="civicoRichiedente" name="civicoRichiedente" th:value="${alunno.civicoRichidente}" required/>
+    <input type="text" id="civicoRichiedente" name="civicoRichidente" th:value="${alunno.civicoRichidente}" required/>
 
     <label for="comune">Comune:</label>
     <input type="text" id="comune" name="comune" th:value="${alunno.comune}" required/>
