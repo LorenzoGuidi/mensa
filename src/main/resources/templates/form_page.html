@@ -197,17 +197,21 @@
     	<select id="quotaUtente" name="quotaUtente" required>
   			<option value="3.20" th:selected="${alunno.quotaUtente == '3.20'}">3.20</option>
   			<option value="4.00" th:selected="${alunno.quotaUtente == '4.00'}">4.00</option>
+  		</select>
   
-    </div>
-    <br>
-   
 
     
 <!--    <input type="text" id="quotaUtente" name="quotaUtente" th:value="${alunno.quotaUtente}" required/>-->
 
     <label for="rientri">Rientri:</label>
-    <input type="text" id="rientri" name="rientri" th:value="${alunno.rientri}" required/>
-    <br>
+    <select id="rientri" name="rientri" required>
+  		<option value="1" th:selected="${alunno.rientri == '1'}">Infanzia</option>
+  		<option value="2" th:selected="${alunno.rientri == '2'}">Primaria</option>
+  		<option value="3" th:selected="${alunno.rientri == '3'}">Secondaria</option>
+  		<option value="4" th:selected="${alunno.rientri == '4'}">Primaria</option>
+  		<option value="5" th:selected="${alunno.rientri == '5'}">Secondaria</option>
+	</select>
+   
     <h2>Dati Richiedente:</h2>
     
     
