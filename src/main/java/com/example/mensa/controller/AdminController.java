@@ -210,7 +210,11 @@ public class AdminController {
 
     	alunno.setDataIscrizione(a.getDataIscrizione());
     	SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+    	alunno.setLuogoNascitaRichidente(a.getLuogoNascitaRichidente());
+    	alunno.setIndirizzoRichidente(a.getIndirizzoRichidente());
+    	alunno.setCivicoRichidente(a.getCivicoRichidente());
     	alunno.setDataNascita(a.getDataNascita());
+    	alunno.setGradoScuola(a.getGradoScuola());
     	alunno.setUtente(u);
 
     	alunno.setAnnoAccademico(a.getAnnoAccademico());
