@@ -206,13 +206,17 @@ public class AdminController {
     	Alunno a = as.findById(alunno.getId());
     	
     	String username = rec.getParameter("username");
+    	String luogoNascitaRichidente = rec.getParameter("luogoNascitaRichidente");
+    	String indirizzoRichidente = rec.getParameter("indirizzoRichidente");
+    	String civicoRichidente = rec.getParameter("civicoRichidente");
+    	
         Utente u =	us.findByUsername(username);
 
     	alunno.setDataIscrizione(a.getDataIscrizione());
     	SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-    	alunno.setLuogoNascitaRichidente(a.getLuogoNascitaRichidente());
-    	alunno.setIndirizzoRichidente(a.getIndirizzoRichidente());
-    	alunno.setCivicoRichidente(a.getCivicoRichidente());
+    	alunno.setLuogoNascitaRichidente(luogoNascitaRichidente);
+    	alunno.setIndirizzoRichidente(indirizzoRichidente);
+    	alunno.setCivicoRichidente(civicoRichidente);
     	alunno.setDataNascita(a.getDataNascita());
     	alunno.setGradoScuola(a.getGradoScuola());
     	alunno.setUtente(u);
