@@ -186,7 +186,7 @@ public class UtenteController {
 	        message.setTo(rec.getParameterValues("email"));
 	        message.setSubject("Activation Mail System"); 
 	        String url = "https://mensapoggiomirteto.com/conferma?token="+SIDTOKEN+"&username="+username;
-	        message.setText("Questo è il suo username : " + username + "\n" + "clicca per confermare la registrazione:\n" + url);
+	        message.setText("Questo è il suo username : " + username + "\n" + "copia questo link nel tuo browser se stai effettuando la registrazione da telefono, altrimenti cliccare per confermare la registrazione:\n" + url);
 
 	        
 	        mailSender.send(message);
@@ -514,7 +514,7 @@ public class UtenteController {
 					session.setAttribute("token", SIDTOKEN);
 			        
 			        String url = "https://mensapoggiomirteto.com/recuperopsw_page?username="+username+"&token="+SIDTOKEN;
-			        message.setText("clicca qui per cambiare la password:\n"+url);
+			        message.setText("copia questo link nel tuo browser per cambiare la password:\n"+url);
 			        
 			        mailSender.send(message);
 			        
