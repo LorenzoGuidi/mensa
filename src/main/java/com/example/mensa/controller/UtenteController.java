@@ -277,6 +277,7 @@ public class UtenteController {
     	    	mav.setViewName("login");
     	    	return mav;
 
+    	    	
     	 }
     	 
  		mod.addAttribute("errorMessage" , "qualcosa è andato storto durante la registrazione, riprova :) ");
