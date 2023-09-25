@@ -148,11 +148,11 @@
 	
 	<h2>Dati Alunno:</h2>
 	
-<!--    <label for="nome">Nome:</label>-->
-<!--    <input type="text" id="nome" name="nome" th:value="${alunno.nome}" required/>-->
+    <label for="nome">Nome:</label>
+    <input type="text" id="nome" name="nome" th:value="${alunno.nome}" required/>
 
-<!--    <label for="cognome">Cognome:</label>-->
-<!--    <input type="text" id="cognome" name="cognome" th:value="${alunno.cognome}" required/>-->
+    <label for="cognome">Cognome:</label>
+    <input type="text" id="cognome" name="cognome" th:value="${alunno.cognome}" required/>
 
     <label for="codiceFiscale">Codice Fiscale:</label>
     <input type="text" id="codiceFiscale" name="codiceFiscale" th:value="${alunno.codiceFiscale}" required/>
@@ -175,7 +175,7 @@
 
     <label for="gradoScuola">Grado Scuola:</label>
 <!--    <input type="text" id="gradoScuola" name="gradoScuola" th:value="${alunno.gradoScuola}" required/>-->
-<select id="gradoScuola" name="sesso" required>
+<select id="gradoScuola" name="gradoScuola" required>
   <option value="Infanzia" th:selected="${alunno.gradoScuola == 'Infanzia'}">Infanzia</option>
   <option value="Primaria" th:selected="${alunno.gradoScuola == 'Primaria'}">Primaria</option>
   <option value="Secondaria" th:selected="${alunno.gradoScuola == 'Secondaria'}">Secondaria</option>
@@ -194,10 +194,14 @@
      	<div class="info-content">
     		Qui va inserito il valore calcolato in base al rapporto ISEE (3,20 o 4,00)
     	</div>
+    	<select id="quotaUtente" name="quotaUtente" required>
+  			<option value="3,20" th:selected="${alunno.quotaUtente == 3,20}">3,20</option>
+  			<option value="4,00" th:selected="${alunno.quotaUtente == 4,00}">4,00</option>
+  
     </div>
 
     
-    <input type="text" id="quotaUtente" name="quotaUtente" th:value="${alunno.quotaUtente}" required/>
+<!--    <input type="text" id="quotaUtente" name="quotaUtente" th:value="${alunno.quotaUtente}" required/>-->
 
     <label for="rientri">Rientri:</label>
     <input type="text" id="rientri" name="rientri" th:value="${alunno.rientri}" required/>
