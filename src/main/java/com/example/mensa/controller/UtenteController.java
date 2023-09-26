@@ -398,6 +398,7 @@ public class UtenteController {
 	            al.setCognomeRichidente(u.getCognome());
 	            al.setEmail(u.getEmail());
 	            al.setUtente(u);
+	            al.setIscritto(true);
 	            
 	            as.saveAlunno(al);
 	            

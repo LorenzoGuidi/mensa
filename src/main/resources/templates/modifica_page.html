@@ -124,6 +124,14 @@
     <option value="F">F</option>
   </select>
 </div>
+<div class="grid-container">
+  <label for="gradoScuola">Sesso:</label>
+  <select id="gradoScuola" name="gradoScuola" th:field="*{gradoScuola}">
+    <option value="Infanzia">Infanzia</option>
+    <option value="Primaria">Primaria</option>
+    <option value="Secondaria">Secondaria</option>
+  </select>
+</div>
 
 <div class="grid-container">
   <label for="sedeScolastica">Sede Scolastica:</label>
@@ -525,6 +533,7 @@
   <label for="cognomeRichidente">Cognome Richiedente:</label>
   <input type="text" id="cognomeRichidente" name="cognomeRichidente" th:value="${alunno.cognomeRichidente}" />
 </div>
+  
 
 <div class="grid-container">
   <label for="codiceFiscaleRichiedente">Codice fiscale Richiedente:</label>
