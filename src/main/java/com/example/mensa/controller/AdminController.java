@@ -209,11 +209,13 @@ public class AdminController {
     	String luogoNascitaRichidente = rec.getParameter("luogoNascitaRichidente");
     	String indirizzoRichidente = rec.getParameter("indirizzoRichidente");
     	String civicoRichidente = rec.getParameter("civicoRichidente");
+    	String codiceFiscaleRichiedente = rec.getParameter("codiceFiscaleRichiedente");
     	
         Utente u =	us.findByUsername(username);
 
     	alunno.setDataIscrizione(a.getDataIscrizione());
     	SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+    	alunno.setCodiceFiscaleRichiedente(codiceFiscaleRichiedente);
     	alunno.setLuogoNascitaRichidente(luogoNascitaRichidente);
     	alunno.setIndirizzoRichidente(indirizzoRichidente);
     	alunno.setCivicoRichidente(civicoRichidente);

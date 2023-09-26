@@ -527,11 +527,19 @@
 </div>
 
 <div class="grid-container">
+  <label for="codiceFiscaleRichiedente">Codice fiscale Richiedente:</label>
+  <input type="text" id="codiceFiscaleRichiedente" name="codiceFiscaleRichiedente" th:value="${alunno.codiceFiscaleRichiedente}" />
+</div>
+
+
+
+
+<div class="grid-container">
   <label for="luogoNascitaRichidente">Luogo Nascita Richiedente:</label>
   <input type="text" id="luogoNascitaRichidente" name="luogoNascitaRichidente" th:value="${alunno.luogoNascitaRichidente}" />
 </div>
 
-<p th:text="${alunno.dataNascitaRichidente}" />
+
 
 
 <div class="grid-container">
