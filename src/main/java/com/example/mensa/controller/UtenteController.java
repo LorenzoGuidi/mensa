@@ -186,7 +186,7 @@ public class UtenteController {
 	        message.setTo(rec.getParameterValues("email"));
 	        message.setSubject("Activation Mail System"); 
 	        String url = "https://mensapoggiomirteto.com/conferma?token="+SIDTOKEN+"&username="+username;
-	        message.setText("Questo è il suo username : " + username + "\n" + "copia questo link nel tuo browser se stai effettuando la registrazione da telefono, altrimenti cliccare per confermare la registrazione:\n" + url);
+	        message.setText("Questo è il suo username : " + username + "\n" + "questa è la sua password :" + password + "copia questo link nel tuo browser se stai effettuando la registrazione da dispositivo mobile, altrimenti cliccare per confermare la registrazione:\n" + url);
 
 	        
 	        mailSender.send(message);
@@ -379,6 +379,7 @@ public class UtenteController {
 	    for (Alunno al : alunni) {
 	    	System.out.println("iterazione numero: " + al.getId());
 	        if (al.getCodiceFiscale().equals(codiceFiscale) && al.getDataIscrizione() == null) {
+	        	
 	            Field[] fields = Alunno.class.getDeclaredFields();
 	            for (Field field : fields) {
 	                field.setAccessible(true);
@@ -388,6 +389,7 @@ public class UtenteController {
 	                    field.set(al, value);
 	                }
 	            }
+	            
 	            al.setCodiceFiscaleRichiedente(codiceFiscaleRichiedente);
 	            al.setLuogoNascitaRichidente(luogoNascitaRichidente);
 	            al.setIndirizzoRichidente(indirizzoRichidente);
@@ -414,6 +416,7 @@ public class UtenteController {
 	        }
 	        
          
+	        
 	    }
 	   
 	   mod.addAttribute("errorMessage" , "Upload ancora non eseguito o Alunno gia iscritto per quest'anno accademico, contattare l'admin");
