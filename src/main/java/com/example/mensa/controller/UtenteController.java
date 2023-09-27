@@ -337,8 +337,8 @@ public class UtenteController {
     	String indirizzoRichidente = rec.getParameter("indirizzoRichidente");
     	String civicoRichidente = rec.getParameter("civicoRichidente");
     	String codiceFiscaleRichiedente = rec.getParameter("codiceFiscaleRichiedente");
-    	String quotaUtente = rec.getParameter("quotaUtente");
-    	int quotaUtenteInt = Integer.parseInt(quotaUtente) ;
+//    	String quotaUtente = rec.getParameter("quotaUtente");
+ //   	int quotaUtenteInt = Integer.parseInt(quotaUtente) ;
     
 //    	String dataNascita = rec.getParameter("dataNascita"); // Supponiamo che sia nel formato "AAAA-MM-GG"
 //    	// Parsa la stringa nel formato "AAAA-MM-GG" in un oggetto LocalDate
@@ -390,14 +390,14 @@ public class UtenteController {
 	                    field.set(al, value);
 	                }
 	            }
-	            al.setQuotaUtenteOttobre(quotaUtenteInt);
-	            al.setQuotaUtenteNovembre(quotaUtenteInt);
-	            al.setQuotaUtenteGennaio(quotaUtenteInt);
-	            al.setQuotaUtenteFebbraio(quotaUtenteInt);
-	            al.setQuotaUtenteMarzo(quotaUtenteInt);
-	            al.setQuotaUtenteAprile(quotaUtenteInt);
-	            al.setQuotaUtenteMaggio(quotaUtenteInt);
-	            al.setQuotaUtenteGiugno(quotaUtenteInt);
+//	            al.setQuotaUtenteOttobre(quotaUtenteInt);
+	//            al.setQuotaUtenteNovembre(quotaUtenteInt);
+	  //          al.setQuotaUtenteGennaio(quotaUtenteInt);
+	    //        al.setQuotaUtenteFebbraio(quotaUtenteInt);
+	      //      al.setQuotaUtenteMarzo(quotaUtenteInt);
+	        //    al.setQuotaUtenteAprile(quotaUtenteInt);
+	          //  al.setQuotaUtenteMaggio(quotaUtenteInt);
+	            // al.setQuotaUtenteGiugno(quotaUtenteInt);
 	           
 	            
 	            al.setCodiceFiscaleRichiedente(codiceFiscaleRichiedente);
