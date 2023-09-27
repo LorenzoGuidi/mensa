@@ -402,6 +402,10 @@ public class UtenteController {
 	                    field.set(al, value);
 	                }
 	            }
+	            
+	            
+	            
+	            // Stessa quota per tutti i mesi
 	            al.setQuotaUtenteOttobre(quotaUtenteInt);
 	            al.setQuotaUtenteNovembre(quotaUtenteInt);
 	            al.setQuotaUtenteDicembre(quotaUtenteInt);
@@ -411,6 +415,10 @@ public class UtenteController {
 	            al.setQuotaUtenteAprile(quotaUtenteInt);
 	           al.setQuotaUtenteMaggio(quotaUtenteInt);
 	            al.setQuotaUtenteGiugno(quotaUtenteInt);
+	            
+	            
+	            
+	          
 	           
 	            
 	            al.setCodiceFiscaleRichiedente(codiceFiscaleRichiedente);
