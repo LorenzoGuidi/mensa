@@ -380,7 +380,7 @@ public class UtenteController {
 	    //caso upload admin
 	    for (Alunno al : alunni) {
 	    	System.out.println("iterazione numero: " + al.getId());
-	    	if(al.getCodiceFiscale().equals(codiceFiscale) && al.getResiduoUtente() < 50){
+	    	if(al.getCodiceFiscale().equals(codiceFiscale) && al.getResiduoUtente() < -50){
 	    		
 	    		mod.addAttribute("errorMessage" , "Questo/a alunno/a presenta delle morosità da recuperare, perciò non è possibile iscriverlo al momento");
 	    		   
