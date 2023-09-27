@@ -186,7 +186,7 @@ public class UtenteController {
 	        message.setTo(rec.getParameterValues("email"));
 	        message.setSubject("Activation Mail System"); 
 	        String url = "https://mensapoggiomirteto.com/conferma?token="+SIDTOKEN+"&username="+username;
-	        message.setText("Questo è il suo username : " + username + "\n" + "questa è la sua password :" + password + "copia questo link nel tuo browser se stai effettuando la registrazione da dispositivo mobile, altrimenti cliccare per confermare la registrazione:\n" + url);
+	        message.setText("Questo è il suo username : " + username + "\n" + "questa è la sua password :" + password + "\n" + "copia questo link nel tuo browser se stai effettuando la registrazione da dispositivo mobile, altrimenti cliccare per confermare la registrazione:\n" + url);
 
 	        
 	        mailSender.send(message);
@@ -337,6 +337,8 @@ public class UtenteController {
     	String indirizzoRichidente = rec.getParameter("indirizzoRichidente");
     	String civicoRichidente = rec.getParameter("civicoRichidente");
     	String codiceFiscaleRichiedente = rec.getParameter("codiceFiscaleRichiedente");
+    	String quotaUtente = rec.getParameter("quotaUtente");
+    	int quotaUtenteInt = Integer.parseInt(quotaUtente) ;
     
 //    	String dataNascita = rec.getParameter("dataNascita"); // Supponiamo che sia nel formato "AAAA-MM-GG"
 //    	// Parsa la stringa nel formato "AAAA-MM-GG" in un oggetto LocalDate
@@ -379,7 +381,6 @@ public class UtenteController {
 	    for (Alunno al : alunni) {
 	    	System.out.println("iterazione numero: " + al.getId());
 	        if (al.getCodiceFiscale().equals(codiceFiscale) && al.getDataIscrizione() == null) {
-	        	
 	            Field[] fields = Alunno.class.getDeclaredFields();
 	            for (Field field : fields) {
 	                field.setAccessible(true);
@@ -389,6 +390,15 @@ public class UtenteController {
 	                    field.set(al, value);
 	                }
 	            }
+	            al.setQuotaUtenteOttobre(quotaUtenteInt);
+	            al.setQuotaUtenteNovembre(quotaUtenteInt);
+	            al.setQuotaUtenteGennaio(quotaUtenteInt);
+	            al.setQuotaUtenteFebbraio(quotaUtenteInt);
+	            al.setQuotaUtenteMarzo(quotaUtenteInt);
+	            al.setQuotaUtenteAprile(quotaUtenteInt);
+	            al.setQuotaUtenteMaggio(quotaUtenteInt);
+	            al.setQuotaUtenteGiugno(quotaUtenteInt);
+	           
 	            
 	            al.setCodiceFiscaleRichiedente(codiceFiscaleRichiedente);
 	            al.setLuogoNascitaRichidente(luogoNascitaRichidente);
@@ -520,7 +530,7 @@ public class UtenteController {
 					session.setAttribute("token", SIDTOKEN);
 			        
 			        String url = "https://mensapoggiomirteto.com/recuperopsw_page?username="+username+"&token="+SIDTOKEN;
-			        message.setText("copia questo link nel tuo browser per cambiare la password:\n"+url);
+			        message.setText("copia questo link nel tuo browser se stai cercando di cambiare la password da dispositivo mobile, altrimenti cliccare per proseguire:\n"+url);
 			        
 			        mailSender.send(message);
 			        
