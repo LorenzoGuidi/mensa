@@ -296,7 +296,7 @@ public class UtenteController {
       	List<Alunno> alunniutente = u.getAlunni();
     	  
     		for(Alunno al : alunniutente) {
-    			if(al.getDifferenzaPasti() < 0) {
+    			if(al.getResiduoUtente() < 0) {
     			
     			   mod.addAttribute("errorMessage" , "Non è possibile fare una nuova iscrizione per mancati pagamenti degli anni precedenti");
     				
@@ -380,7 +380,19 @@ public class UtenteController {
 	    //caso upload admin
 	    for (Alunno al : alunni) {
 	    	System.out.println("iterazione numero: " + al.getId());
-	        if (al.getCodiceFiscale().equals(codiceFiscale) && al.getDataIscrizione() == null) {
+	    	if(al.getCodiceFiscale().equals(codiceFiscale) && al.getResiduoUtente() < 50){
+	    		
+	    		mod.addAttribute("errorMessage" , "Questo/a alunno/a presenta delle morosità da recuperare, perciò non è possibile iscriverlo al momento");
+	    		   
+	    	    mav.setViewName("errore");
+	    	    
+	    	    
+	    	    return mav;
+	    		
+	    		
+	    		
+	    	}
+	    	else if (al.getCodiceFiscale().equals(codiceFiscale) && al.getDataIscrizione() == null) {
 	            Field[] fields = Alunno.class.getDeclaredFields();
 	            for (Field field : fields) {
 	                field.setAccessible(true);
@@ -392,6 +404,7 @@ public class UtenteController {
 	            }
 	            al.setQuotaUtenteOttobre(quotaUtenteInt);
 	            al.setQuotaUtenteNovembre(quotaUtenteInt);
+	            al.setQuotaUtenteDicembre(quotaUtenteInt);
 	           al.setQuotaUtenteGennaio(quotaUtenteInt);
 	            al.setQuotaUtenteFebbraio(quotaUtenteInt);
 	            al.setQuotaUtenteMarzo(quotaUtenteInt);

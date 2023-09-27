@@ -111,7 +111,7 @@ public class AdminController {
     	List<Alunno> alunniNeg = new ArrayList<Alunno>();
     	List<Alunno> alunni = as.getAllAlunni();
     	for(Alunno a : alunni) {
-    		if(a.getDifferenzaPasti()<0) {
+    		if(a.getResiduoUtente()<0) {
     			alunniNeg.add(a);
     		}
     	}

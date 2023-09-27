@@ -84,7 +84,7 @@ public class MensaApplication extends TimerTask{
             	
             	for(Alunno a : alunni) {
             		System.out.println(a.getCognome());
-            		if(a.getDifferenzaPasti() < -10) {
+            		if(a.getResiduoUtente() < -50) {
             			String numero = a.getTelefonoCell();
             			TwilioAllert tAllert = new TwilioAllert();
                     	tAllert.segnala(numero);//a twilio attivato ricordarsi di modificare il metodo segnala!
@@ -111,7 +111,7 @@ public class MensaApplication extends TimerTask{
             	
             	for(Alunno a : alunni) {
             		System.out.println(a.getCognome());
-            		if(a.getDifferenzaPasti() < -10) {
+            		if(a.getResiduoUtente() < -50) {
             			String numero = a.getTelefonoCell();
             			TwilioAllert tAllert = new TwilioAllert();
                     	tAllert.segnala(numero);//a twilio attivato ricordarsi di modificare il metodo segnala!
@@ -137,7 +137,7 @@ public class MensaApplication extends TimerTask{
             	
             	for(Alunno a : alunni) {
             		System.out.println(a.getCognome());
-            		if(a.getDifferenzaPasti() < -10) {
+            		if(a.getResiduoUtente() < -50) {
             			String numero = a.getTelefonoCell();
             			TwilioAllert tAllert = new TwilioAllert();
                     	tAllert.segnala(numero);//a twilio attivato ricordarsi di modificare il metodo segnala!
@@ -164,7 +164,7 @@ public class MensaApplication extends TimerTask{
             	
             	for(Alunno a : alunni) {
             		System.out.println(a.getCognome());
-            		if(a.getDifferenzaPasti() < -10) {
+            		if(a.getResiduoUtente() < -50) {
             			String numero = a.getTelefonoCell();
             			TwilioAllert tAllert = new TwilioAllert();
                     	tAllert.segnala(numero);//a twilio attivato ricordarsi di modificare il metodo segnala!
