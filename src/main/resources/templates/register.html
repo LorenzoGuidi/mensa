@@ -138,7 +138,7 @@
     <div class="register-form">
         <h2>Registrazione</h2>
         <form action="/register" method="post" id="registrazione">
-            <input type="text" name="username" placeholder="Username" required>
+            <input type="text" id="username" name="username" placeholder="Username" required>
                 <span id="usernameErrorMessage" style="color: red; display: none;">L'username non può contenere spazi o caratteri '/' o '\'</span>
 
              <input type="text" name="nome" placeholder="nome" required>
@@ -156,13 +156,13 @@
 	
 	
 	
-      // Ottieni l'elemento dell'username e il messaggio di errore
-    const usernameInput = document.getElementById('username');
-    const errorMessage = document.getElementById('usernameErrorMessage');
-    const registerButton = document.getElementById('registerButton');
+     
 
     // Aggiungi un listener per l'evento input sull'elemento dell'username
     usernameInput.addEventListener('input', function() {
+		 const usernameInput = document.getElementById('username');
+    const errorMessage = document.getElementById('usernameErrorMessage');
+    const registerButton = document.getElementById('registerButton');
         const username = usernameInput.value;
 
         // Controlla se l'username contiene spazi vuoti o i caratteri "/" o "\"
