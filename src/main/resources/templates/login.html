@@ -116,5 +116,17 @@
         <a href="/recupero">Password dimenticata?</a>
     </div>
 </main>
+<script>
+    document.getElementById('login-form').addEventListener('submit', function(event) {
+        const usernameInput = document.getElementById('username');
+        const username = usernameInput.value;
+
+        // Controlla se l'username contiene spazi vuoti o caratteri speciali
+        if (/\s/.test(username) || /[\/\\]/.test(username)) {
+            alert('L\'username non può contenere spazi vuoti o caratteri / \\');
+            event.preventDefault(); // Impedisce l'invio del form
+        }
+    });
+</script>
 </body>
 </html>

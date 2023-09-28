@@ -296,7 +296,7 @@ public class UtenteController {
       	List<Alunno> alunniutente = u.getAlunni();
     	  
     		for(Alunno al : alunniutente) {
-    			if(al.getResiduoUtente() < 0) {
+    			if(al.getResiduoUtente() < -10) {
     			
     			   mod.addAttribute("errorMessage" , "Non è possibile fare una nuova iscrizione per mancati pagamenti degli anni precedenti");
     				
@@ -380,7 +380,7 @@ public class UtenteController {
 	    //caso upload admin
 	    for (Alunno al : alunni) {
 	    	System.out.println("iterazione numero: " + al.getId());
-	    	if(al.getCodiceFiscale().equals(codiceFiscale) && al.getResiduoUtente() < -50){
+	    	if(al.getCodiceFiscale().equals(codiceFiscale) && al.getResiduoUtente() < -10){
 	    		
 	    		mod.addAttribute("errorMessage" , "Questo/a alunno/a presenta delle morosità da recuperare, perciò non è possibile iscriverlo al momento");
 	    		   
@@ -572,8 +572,7 @@ public class UtenteController {
 	
 	@RequestMapping(value= "/recuperopsw_page", method = RequestMethod.GET)
 	public ModelAndView recuperapsw_page(HttpServletRequest rec,
-			@RequestParam("username") String username ,
-			@RequestParam("token")String token,Model mod) throws ParseException {
+			@RequestParam("username") String username, Model mod) throws ParseException {
 		ModelAndView mav = new ModelAndView();
 		
 		rec.getSession();
