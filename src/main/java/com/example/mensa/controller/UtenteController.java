@@ -160,10 +160,10 @@ public class UtenteController {
     	
 		 session = rec.getSession();
 		//mail check system
-		Random randidtoken = new Random();
-		Integer idtoken = randidtoken.nextInt(100000000-9000000) - 900000;//il range del id token, x non sforare le 10 cifre
-		String SIDTOKEN = idtoken.toString();
-		session.setAttribute("token", SIDTOKEN);
+//		Random randidtoken = new Random();
+//		Integer idtoken = randidtoken.nextInt(100000000-9000000) - 900000;//il range del id token, x non sforare le 10 cifre
+//		String SIDTOKEN = idtoken.toString();
+//		session.setAttribute("token", SIDTOKEN);
 		
 		session.setAttribute("username", username );
 		List<Utente> utenti = ur.findAll();
@@ -185,8 +185,8 @@ public class UtenteController {
 	        message.setFrom(env.getProperty("spring.mail.username"));
 	        message.setTo(rec.getParameterValues("email"));
 	        message.setSubject("Activation Mail System"); 
-	        String url = "https://mensapoggiomirteto.com/conferma?token="+SIDTOKEN+"&username="+username;
-	        message.setText("Questo è il suo username : " + username + "\n" + "questa è la sua password :" + password + "\n" + "copia questo link nel tuo browser se stai effettuando la registrazione da dispositivo mobile, altrimenti cliccare per confermare la registrazione:\n" + url);
+	        String url = "https://mensapoggiomirteto.com/conferma?&username="+username;
+	        message.setText("Questo è il suo username : " + username + "\n" + "questa è la sua password :" + password + "\n" + "Clicca qui per confermare la registrazione:\n" + url);
 
 	        
 	        mailSender.send(message);
@@ -261,13 +261,13 @@ public class UtenteController {
     @RequestMapping(value= "/conferma", method = RequestMethod.GET)
     public ModelAndView confermaEmail(HttpServletRequest rec,Model mod) {
     	
-    	String token = rec.getParameter("token");
+//    	String token = rec.getParameter("token");
     	String username = rec.getParameter("username");
     	
     	 session = rec.getSession();
-    	 String tokenPreso = session.getAttribute("token").toString();
-    	 if(tokenPreso.equals(token)) {
-  
+//    	 String tokenPreso = session.getAttribute("token").toString();
+//    	 if(tokenPreso.equals(token)) {
+//  
     		 
     	     Utente u = us.findByUsername(username);
     	     u.setConfermato(true);
@@ -278,12 +278,12 @@ public class UtenteController {
     	    	return mav;
 
     	    	
-    	 }
+//    	 }
     	 
- 		mod.addAttribute("errorMessage" , "qualcosa è andato storto durante la registrazione, riprova :) ");
+// 		mod.addAttribute("errorMessage" , "qualcosa è andato storto durante la registrazione, riprova :) ");
 
     	
-    	return new ModelAndView("redirect:/errore");
+//    	return new ModelAndView("redirect:/errore");
     	
     }
       @RequestMapping(value= "/form_page", method = RequestMethod.GET)
@@ -544,14 +544,14 @@ public class UtenteController {
 			        message.setTo(rec.getParameterValues("email"));
 			        message.setSubject("Activation Mail System"); 
 			       // String url = "http://127.0.0.1:8080/recuperopsw_page?username="+username;
-			        Random randidtoken = new Random();
-					Integer idtoken = randidtoken.nextInt(100000000-9000000) - 900000;//il range del id token, x non sforare le 10 cifre
-					String SIDTOKEN = idtoken.toString();
+//			        Random randidtoken = new Random();
+//					Integer idtoken = randidtoken.nextInt(100000000-9000000) - 900000;//il range del id token, x non sforare le 10 cifre
+//					String SIDTOKEN = idtoken.toString();
 					rec.getSession();
-					session.setAttribute("token", SIDTOKEN);
+		//			session.setAttribute("token", SIDTOKEN);
 			        
-			        String url = "https://mensapoggiomirteto.com/recuperopsw_page?username="+username+"&token="+SIDTOKEN;
-			        message.setText("copia questo link nel tuo browser se stai cercando di cambiare la password da dispositivo mobile, altrimenti cliccare per proseguire:\n"+url);
+			        String url = "https://mensapoggiomirteto.com/recuperopsw_page?username="+username;
+			        message.setText("clicca qui per proseguire con il recupero password:\n"+url);
 			        
 			        mailSender.send(message);
 			        
@@ -578,19 +578,19 @@ public class UtenteController {
 		
 		rec.getSession();
 		session.setAttribute("username", username);
-		String getoken = session.getAttribute("token").toString();
-		if(getoken.equals(token)){
-			
+//		String getoken = session.getAttribute("token").toString();
+//		if(getoken.equals(token)){
+//			
 			mav.setViewName("recuperopsw_page");
 			return mav;
-			
-		}
-		
-		mod.addAttribute("errorMessage" , "qualcosa è andato storto con il recupero della password, riprova :)");
-
-		
-		mav.setViewName("errore");
-		return mav;
+//			
+//		}
+//		
+//		mod.addAttribute("errorMessage" , "qualcosa è andato storto con il recupero della password, riprova :)");
+//
+//		
+//		mav.setViewName("errore");
+//		return mav;
 		
 	}
     
