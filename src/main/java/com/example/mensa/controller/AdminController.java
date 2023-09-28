@@ -246,7 +246,7 @@ public class AdminController {
     	String presenzaOttobre = rec.getParameter("presenzaOttobre");
     	double presenzaOttobreDouble = Double.parseDouble(presenzaOttobre);
     	alunno.setDovutoUtenteOttobre(presenzaOttobreDouble*alunno.getQuotaUtente());
-    	alunno.setQuotaComuneOttobre((4.7952 * 1.04) - alunno.getQuotaUtente());
+    	alunno.setQuotaComuneOttobre((5.3 * 1.04) - alunno.getQuotaUtente());
     	alunno.setDovutoComuneOttobre(presenzaOttobreDouble*alunno.getQuotaComuneOttobre());
     	
     	
@@ -254,7 +254,7 @@ public class AdminController {
     	String presenzaNovembre = rec.getParameter("presenzaNovembre");
     	double presenzaNovembreDouble = Double.parseDouble(presenzaNovembre);
     	alunno.setDovutoUtenteNovembre(presenzaNovembreDouble*alunno.getQuotaUtente());
-    	alunno.setQuotaComuneNovembre((4.7952 * 1.04) - alunno.getQuotaUtente());
+    	alunno.setQuotaComuneNovembre((5.3 * 1.04) - alunno.getQuotaUtente());
     	alunno.setDovutoComuneNovembre(presenzaNovembreDouble*alunno.getQuotaComuneNovembre());
     	
     	
@@ -263,7 +263,7 @@ public class AdminController {
     	String presenzaDicembre = rec.getParameter("presenzaDicembre");
     	double presenzaDicembreDouble = Double.parseDouble(presenzaDicembre);
     	alunno.setDovutoUtenteDicembre(presenzaDicembreDouble*alunno.getQuotaUtente());
-    	alunno.setQuotaComuneDicembre((4.7952 * 1.04) - alunno.getQuotaUtente());
+    	alunno.setQuotaComuneDicembre((5.3 * 1.04) - alunno.getQuotaUtente());
     	alunno.setDovutoComuneDicembre(presenzaDicembreDouble*alunno.getQuotaComuneDicembre());
     	
     	
@@ -273,7 +273,7 @@ public class AdminController {
     	String presenzaGennaio = rec.getParameter("presenzaGennaio");
     	double presenzaGennaioDouble = Double.parseDouble(presenzaGennaio);
     	alunno.setDovutoUtenteGennaio(presenzaGennaioDouble*alunno.getQuotaUtente());
-    	alunno.setQuotaComuneGennaio((4.7952 * 1.04) - alunno.getQuotaUtente());
+    	alunno.setQuotaComuneGennaio((5.3 * 1.04) - alunno.getQuotaUtente());
     	alunno.setDovutoComuneGennaio(presenzaGennaioDouble*alunno.getQuotaComuneGennaio());
     	
     	
@@ -282,7 +282,7 @@ public class AdminController {
     	String presenzaFebbraio = rec.getParameter("presenzaFebbraio");
     	double presenzaFebbraioDouble = Double.parseDouble(presenzaFebbraio);
     	alunno.setDovutoUtenteFebbraio(presenzaFebbraioDouble*alunno.getQuotaUtente());
-    	alunno.setQuotaComuneFebbraio((4.7952 * 1.04) - alunno.getQuotaUtente());
+    	alunno.setQuotaComuneFebbraio((5.3 * 1.04) - alunno.getQuotaUtente());
     	alunno.setDovutoComuneFebbraio(presenzaFebbraioDouble*alunno.getQuotaComuneFebbraio());
     	
     	
@@ -291,7 +291,7 @@ public class AdminController {
     	String presenzaMarzo = rec.getParameter("presenzaMarzo");
     	double presenzaMarzoDouble = Double.parseDouble(presenzaMarzo);
     	alunno.setDovutoUtenteMarzo(presenzaMarzoDouble*alunno.getQuotaUtente());
-    	alunno.setQuotaComuneMarzo((4.7952 * 1.04) - alunno.getQuotaUtente());
+    	alunno.setQuotaComuneMarzo((5.3 * 1.04) - alunno.getQuotaUtente());
     	alunno.setDovutoComuneMarzo(presenzaMarzoDouble*alunno.getQuotaComuneMarzo());
     	
     	
@@ -299,7 +299,7 @@ public class AdminController {
     	String presenzaAprile = rec.getParameter("presenzaAprile");
     	double presenzaAprileDouble = Double.parseDouble(presenzaAprile);
     	alunno.setDovutoUtenteAprile(presenzaAprileDouble*alunno.getQuotaUtente());
-    	alunno.setQuotaComuneAprile((4.7952 * 1.04) - alunno.getQuotaUtente());
+    	alunno.setQuotaComuneAprile((5.3 * 1.04) - alunno.getQuotaUtente());
     	alunno.setDovutoComuneAprile(presenzaAprileDouble*alunno.getQuotaComuneAprile());
     	
     	
@@ -307,7 +307,7 @@ public class AdminController {
     	String presenzaMaggio = rec.getParameter("presenzaMaggio");
     	double presenzaMaggioDouble = Double.parseDouble(presenzaMaggio);
     	alunno.setDovutoUtenteMaggio(presenzaMaggioDouble*alunno.getQuotaUtente());
-    	alunno.setQuotaComuneMaggio((4.7952 * 1.04) - alunno.getQuotaUtente());
+    	alunno.setQuotaComuneMaggio((5.3 * 1.04) - alunno.getQuotaUtente());
     	alunno.setDovutoComuneMaggio(presenzaMaggioDouble*alunno.getQuotaComuneMaggio());
     	
     	
@@ -315,7 +315,7 @@ public class AdminController {
     	String presenzaGiugno = rec.getParameter("presenzaGiugno");
     	double presenzaGiugnoDouble = Double.parseDouble(presenzaGiugno);
     	alunno.setDovutoUtenteGiugno(presenzaGiugnoDouble*alunno.getQuotaUtente());
-    	alunno.setQuotaComuneGiugno((4.7952 * 1.04) - alunno.getQuotaUtente());
+    	alunno.setQuotaComuneGiugno((5.3 * 1.04) - alunno.getQuotaUtente());
     	alunno.setDovutoComuneGiugno(presenzaGiugnoDouble*alunno.getQuotaComuneGiugno());
     	
     
