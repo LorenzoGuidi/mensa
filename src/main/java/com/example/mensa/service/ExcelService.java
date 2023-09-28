@@ -63,10 +63,6 @@ public class ExcelService {
         sheet.autoSizeColumn(columnCount);
         Cell cell = row.createCell(columnCount);
         
-        if (valueOfCell instanceof String) {
-            valueOfCell = ((String) valueOfCell).toUpperCase();
-        }
-        
        
         if (valueOfCell instanceof Date) {
     	    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
