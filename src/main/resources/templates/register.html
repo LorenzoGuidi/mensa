@@ -156,10 +156,13 @@
 	
 	
 	
-    function validateUsername() {
-        const usernameInput = document.getElementById('username');
-        const errorMessage = document.getElementById('usernameErrorMessage');
-        const registerButton = document.getElementById('registerButton');
+      // Ottieni l'elemento dell'username e il messaggio di errore
+    const usernameInput = document.getElementById('username');
+    const errorMessage = document.getElementById('usernameErrorMessage');
+    const registerButton = document.getElementById('registerButton');
+
+    // Aggiungi un listener per l'evento input sull'elemento dell'username
+    usernameInput.addEventListener('input', function() {
         const username = usernameInput.value;
 
         // Controlla se l'username contiene spazi vuoti o i caratteri "/" o "\"
@@ -170,7 +173,7 @@
             errorMessage.style.display = 'none';  // Nascondi il messaggio di errore
             registerButton.disabled = false;  // Abilita il pulsante
         }
-    }
+    });
 
     function showConfirmationPopup() {
         const form = document.getElementById('registrazione');
