@@ -333,7 +333,7 @@ public class AdminController {
     			+ PastoPagato4 + PastoPagato5);
     	
     	
-    	alunno.setDifferenzaPasti(alunno.getPresenzeRegistrate() - alunno.getPastiPagati());
+    	alunno.setDifferenzaPasti( alunno.getPastiPagati() - alunno.getPresenzeRegistrate());
     	
     	
     	alunno.setDovutoUtente(alunno.getDovutoUtenteOttobre() + alunno.getDovutoUtenteNovembre() + alunno.getDovutoUtenteDicembre() + 
