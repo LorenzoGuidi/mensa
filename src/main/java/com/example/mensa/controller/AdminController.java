@@ -216,19 +216,19 @@ public class AdminController {
     	
     	//Dati che prendiamo per fare i conti automatizzati
     	
-    	String ImpPagato1 = rec.getParameter("ImpPagato1");
+    	String ImpPagato1 = rec.getParameter("impPagato1");
     	double ImpPagato1Double = Double.parseDouble(ImpPagato1);
     	
-    	String ImpPagato2 = rec.getParameter("ImpPagato2");
+    	String ImpPagato2 = rec.getParameter("impPagato2");
     	double ImpPagato2Double = Double.parseDouble(ImpPagato2);
     	
-    	String ImpPagato3 = rec.getParameter("ImpPagato3");
+    	String ImpPagato3 = rec.getParameter("impPagato3");
     	double ImpPagato3Double = Double.parseDouble(ImpPagato3);
     
-    	String ImpPagato4 = rec.getParameter("ImpPagato4");
+    	String ImpPagato4 = rec.getParameter("impPagato4");
     	double ImpPagato4Double = Double.parseDouble(ImpPagato4);
 
-    	String ImpPagato5 = rec.getParameter("ImpPagato5");
+    	String ImpPagato5 = rec.getParameter("impPagato5");
     	double ImpPagato5Double = Double.parseDouble(ImpPagato5);
     	
     	double PastoPagato1 = ImpPagato1Double / alunno.getQuotaUtente();
