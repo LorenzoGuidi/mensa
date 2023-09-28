@@ -110,26 +110,12 @@
         <form action="/login" method="post">
             <input type="text" name="username" placeholder="Username" required>
             <input type="password" name="password" placeholder="Password" required>
-            <input type="submit" value="Login" id="loginButton" disabled>
+            <input type="submit" value="Login">
         </form>
         <a href="/register">Non hai un account? Registrati!</a>
         <a href="/recupero">Password dimenticata?</a>
     </div>
 </main>
-<script>
-    function validateUsername() {
-        const usernameInput = document.getElementById('username');
-        const loginButton = document.getElementById('loginButton');
-        const username = usernameInput.value;
-
-        // Controlla se l'username contiene spazi vuoti o i caratteri "/" o "\"
-        if (/\s/.test(username) || /[\/\\]/.test(username)) {
-            loginButton.disabled = true;  // Disabilita il pulsante
-        } else {
-            loginButton.disabled = false;  // Abilita il pulsante
-        }
-    }
-</script>
 
 </body>
 </html>

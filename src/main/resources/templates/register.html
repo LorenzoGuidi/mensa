@@ -139,16 +139,39 @@
         <h2>Registrazione</h2>
         <form action="/register" method="post" id="registrazione">
             <input type="text" name="username" placeholder="Username" required>
+                <span id="usernameErrorMessage" style="color: red; display: none;">L'username non può contenere spazi o caratteri '/' o '\'</span>
+
              <input type="text" name="nome" placeholder="nome" required>
               <input type="text" name="cognome" placeholder="cognome" required>
             <input type="password" name="password" placeholder="Password" required>
             <input type="email" name="email" placeholder="Email" required>
-            <button type="button" onClick="showConfirmationPopup()">Registrati</button>
+            <button type="button" id="registerButton" onClick="showConfirmationPopup()" disabled>Registrati</button>
         </form>
         <a href="/login">Hai già un account? Fai il login</a>
     </div>
 </main>
 <script>
+	
+	
+	
+	
+	
+    function validateUsername() {
+        const usernameInput = document.getElementById('username');
+        const errorMessage = document.getElementById('usernameErrorMessage');
+        const registerButton = document.getElementById('registerButton');
+        const username = usernameInput.value;
+
+        // Controlla se l'username contiene spazi vuoti o i caratteri "/" o "\"
+        if (/\s/.test(username) || /[\/\\]/.test(username)) {
+            errorMessage.style.display = 'block';  // Mostra il messaggio di errore
+            registerButton.disabled = true;  // Disabilita il pulsante
+        } else {
+            errorMessage.style.display = 'none';  // Nascondi il messaggio di errore
+            registerButton.disabled = false;  // Abilita il pulsante
+        }
+    }
+
     function showConfirmationPopup() {
         const form = document.getElementById('registrazione');
         const formData = new FormData(form);
