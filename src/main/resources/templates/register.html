@@ -159,22 +159,28 @@
      
 
     // Aggiungi un listener per l'evento input sull'elemento dell'username
-    usernameInput.addEventListener('input', function() {
-		 const usernameInput = document.getElementById('username');
+    document.addEventListener('DOMContentLoaded', function() {
+    const usernameInput = document.getElementById('username');
     const errorMessage = document.getElementById('usernameErrorMessage');
     const registerButton = document.getElementById('registerButton');
-        const username = usernameInput.value;
+
+    usernameInput.addEventListener('input', function() {
+        const username = usernameInput.value.trim();
 
         // Controlla se l'username contiene spazi vuoti o i caratteri "/" o "\"
-        if (/\s/.test(username) || /[\/\\]/.test(username)) {
-            errorMessage.style.display = 'block';  // Mostra il messaggio di errore
-            registerButton.disabled = true;  // Disabilita il pulsante
+        const isUsernameValid = /^[^\s\/\\]+$/.test(username);
+
+        // Se l'username è valido, nascondi il messaggio di errore e abilita il pulsante "Registrati".
+        // Altrimenti, mostralo in rosso e disabilita il pulsante "Registrati".
+        if (isUsernameValid) {
+            errorMessage.style.display = 'none';
+            registerButton.removeAttribute('disabled');
         } else {
-            errorMessage.style.display = 'none';  // Nascondi il messaggio di errore
-            registerButton.disabled = false;  // Abilita il pulsante
+            errorMessage.style.display = 'block';
+            registerButton.setAttribute('disabled', 'true');
         }
     });
-
+});
     function showConfirmationPopup() {
         const form = document.getElementById('registrazione');
         const formData = new FormData(form);
