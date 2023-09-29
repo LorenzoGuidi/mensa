@@ -82,8 +82,21 @@ public class AdminController {
     
     	 session = rec.getSession();
     	String username = session.getAttribute("username").toString();
+    	
+    	List<Alunno> alunni2 = as.getAllAlunni();
+    	double residuoTotale = 0;
+    	
+    	for(Alunno a : alunni2) {
+    		
+    		residuoTotale += a.getResiduoUtente();
+    		
+    	}
+    	
+    	mav.addObject("residuoTotale", residuoTotale);
    
     	List<Alunno> alunni = as.getAllAlunni();
+    	
+    	
     	
     	mav.addObject("alunno", alunni);
     	
