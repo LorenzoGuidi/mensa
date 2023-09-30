@@ -177,6 +177,7 @@
         <strong>ID:</strong> [[${a.id}]] 
         <br><strong>Bambino/a:</strong> [[${a.cognome}]] [[${a.nome}]] [[${a.codiceFiscale}]]
         <br><strong>Richiedente:</strong> [[${a.cognomeRichidente}]] [[${a.nomeRichiedente}]]
+        <br><strong>Anno Accademico:</strong> [[${a.annoAccademico}]] 
         <!-- LA STAMPA MALE<strong>Iscrizione:</strong> [[${a.dataIscrizione}]] -->
     </span>
 
@@ -301,11 +302,14 @@
 	<br>
 	<br>
 	
-	<p>Importo 1 Totale: <span th:text="${importo1Totale}"></span></p>
-    <p>Importo 2 Totale: <span th:text="${importo2Totale}"></span></p>
-    <p>Importo 3 Totale: <span th:text="${importo3Totale}"></span></p>
-    <p>Importo 4 Totale: <span th:text="${importo4Totale}"></span></p>
-    <p>Importo 5 Totale: <span th:text="${importo5Totale}"></span></p>
+	  <p>
+        Importo 1 Totale: <span th:text="${importo1Totale}"></span> €&nbsp;&nbsp;
+        Importo 2 Totale: <span th:text="${importo2Totale}"></span> €&nbsp;&nbsp;
+        Importo 3 Totale: <span th:text="${importo3Totale}"></span> €&nbsp;&nbsp;
+        Importo 4 Totale: <span th:text="${importo4Totale}"></span> €&nbsp;&nbsp;
+        Importo 5 Totale: <span th:text="${importo5Totale}"></span> €&nbsp;&nbsp;
+        Residuo Totale: <span th:text="${residuoTotale}"></span> €
+    </p>
 
     <!-- Stampa il totale residuo -->
     <p>Residuo Totale: <span th:text="${residuoTotale}"></span></p>
