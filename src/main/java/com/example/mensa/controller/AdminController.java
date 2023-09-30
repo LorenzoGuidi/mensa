@@ -84,14 +84,30 @@ public class AdminController {
     	String username = session.getAttribute("username").toString();
     	
     	List<Alunno> alunni2 = as.getAllAlunni();
-    	double residuoTotale = 0;
+    	double residuoTotale= 0;
+    	double importo1Totale = 0;
+    	double importo2Totale = 0;
+    	double importo3Totale = 0;
+    	double importo4Totale = 0;
+    	double importo5Totale = 0;
+    	
     	
     	for(Alunno a : alunni2) {
     		
+    		importo1Totale += a.getImpPagato1();
+    		importo2Totale += a.getImpPagato2();
+    		importo3Totale += a.getImpPagato3();
+    		importo4Totale += a.getImpPagato4();
+    		importo5Totale += a.getImpPagato5();
     		residuoTotale += a.getResiduoUtente();
     		
     	}
     	
+    	mav.addObject("importo1Totale", importo1Totale);
+    	mav.addObject("importo2Totale", importo2Totale);
+    	mav.addObject("importo3Totale", importo3Totale);
+    	mav.addObject("importo4Totale", importo4Totale);
+    	mav.addObject("importo5Totale", importo5Totale);
     	mav.addObject("residuoTotale", residuoTotale);
    
     	List<Alunno> alunni = as.getAllAlunni();
