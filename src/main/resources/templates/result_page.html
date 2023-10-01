@@ -71,7 +71,7 @@
   <h1>Lista delle iscrizioni con arretrati</h1>
   <ul>
     <li th:each="alunno : ${alunni}">
-      <span class="alunno-details" th:text="${'Arretrati: ' + alunno.differenzaPasti + ' - ID: ' + alunno.id + ' - Nome Richiedente: ' + alunno.nomeRichiedente+ ' - Cognome Richiedente: ' + alunno.cognomeRichidente}"></span>
+      <span class="alunno-details" th:text="${'Arretrati: ' + alunno.residuoUtente + ' - ID: ' + alunno.id + ' - Nome Richiedente: ' + alunno.nomeRichiedente+ ' - Cognome Richiedente: ' + alunno.cognomeRichidente}"></span>
       
       <a th:href="'mailto:' + ${alunno.email}"><span class="alunno-id" th:text="${alunno.email}"></span></a>
       <span class="alunno-codiceFiscale" th:text="${alunno.telefono+ ' / ' + alunno.telefonoCell}"></span>
