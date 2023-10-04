@@ -98,17 +98,16 @@
     background-color: #f9f9f9; /* Sfondo colorato per le righe dispari */
   }
   
-    
-  
-    th, td {
-        padding: 10px; /* Spaziatura interna delle celle */
-        text-align: left; /* Allineamento del testo */
-        border-bottom: 1px solid #ddd; /* Linea separatrice tra le righe */
-    }
 
-    th {
-        background-color: #f2f2f2; /* Colore di sfondo per l'intestazione */
-    }
+.table th, .table td {
+    padding: 15px; /* Spaziatura interna delle celle */
+    text-align: left; /* Allineamento del testo */
+    border-bottom: 1px solid #ddd; /* Linea separatrice tra le righe */
+}
+
+.table th {
+    background-color: #f2f2f2; /* Colore di sfondo per l'intestazione */
+}
 </style>
 
     
@@ -312,6 +311,9 @@
 
 </div>
 <!-- Tabella per visualizzare le informazioni in modo più bello -->
+
+<br>
+
 <table class="table">
     <thead>
         <tr>
@@ -340,11 +342,15 @@
             <td>Importo 5 Totale</td>
             <td><span th:text="${importo5Totale}"></span> €</td>
         </tr>
+        <tr>
+            <td>Residuo Totale</td>
+            <td><span th:text="${residuoTotale}"></span> €</td>
+        </tr>
     </tbody>
 </table>
 
-    <!-- Stampa il totale residuo -->
-    <p>Residuo Totale: <span th:text="${residuoTotale}"></span></p>
+  
+   
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
