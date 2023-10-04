@@ -44,7 +44,7 @@ public class ExcelService {
     }
     
     
-/*  private void writeHeader() {
+  private void writeHeader() {
         sheet = workbook.createSheet("Rendicontazione");
         Row row = sheet.createRow(0);
         CellStyle style = workbook.createCellStyle();
@@ -52,12 +52,12 @@ public class ExcelService {
         font.setBold(true);
         font.setFontHeight(16);
         style.setFont(font);
-        this.createCell(row, 0, "Nome", style);
+        /*this.createCell(row, 0, "Nome", style);
         this.createCell(row, 1, "Cognme", style);
         this.createCell(row, 2, "Email", style);
-        this.createCell(row, 3, "Data iscrizione", style);
+        this.createCell(row, 3, "Data iscrizione", style);*/
     }
-    */
+    
     
     
     private void createCell(Row row, int columnCount, Object valueOfCell, CellStyle style) {
@@ -153,7 +153,7 @@ public class ExcelService {
 
     
     public void generateExcelFile(HttpServletResponse response, String i, String f) throws IOException {
-        //writeHeader();
+        writeHeader();
         write();
         
        
