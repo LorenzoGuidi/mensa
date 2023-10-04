@@ -97,6 +97,18 @@
   .table tbody tr:nth-child(odd) {
     background-color: #f9f9f9; /* Sfondo colorato per le righe dispari */
   }
+  
+    
+  
+    th, td {
+        padding: 10px; /* Spaziatura interna delle celle */
+        text-align: left; /* Allineamento del testo */
+        border-bottom: 1px solid #ddd; /* Linea separatrice tra le righe */
+    }
+
+    th {
+        background-color: #f2f2f2; /* Colore di sfondo per l'intestazione */
+    }
 </style>
 
     
@@ -299,19 +311,37 @@
   
 
 </div>
-	<br>
-	<br>
-	<p>
-		
-	</p>
-	  <p>
-        Saldo Totale anno precedente: <span th:text="${importo1Totale}"></span> €&nbsp;&nbsp;
-        Importo 2 Totale: <span th:text="${importo2Totale}"></span> €&nbsp;&nbsp;
-        Importo 3 Totale: <span th:text="${importo3Totale}"></span> €&nbsp;&nbsp;
-        Importo 4 Totale: <span th:text="${importo4Totale}"></span> €&nbsp;&nbsp;
-        Importo 5 Totale: <span th:text="${importo5Totale}"></span> €&nbsp;&nbsp;
-        
-    </p>
+<!-- Tabella per visualizzare le informazioni in modo più bello -->
+<table class="table">
+    <thead>
+        <tr>
+            <th>Descrizione</th>
+            <th>Importo Totale (€)</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Saldo Totale anno precedente</td>
+            <td><span th:text="${importo1Totale}"></span> €</td>
+        </tr>
+        <tr>
+            <td>Importo 2 Totale</td>
+            <td><span th:text="${importo2Totale}"></span> €</td>
+        </tr>
+        <tr>
+            <td>Importo 3 Totale</td>
+            <td><span th:text="${importo3Totale}"></span> €</td>
+        </tr>
+        <tr>
+            <td>Importo 4 Totale</td>
+            <td><span th:text="${importo4Totale}"></span> €</td>
+        </tr>
+        <tr>
+            <td>Importo 5 Totale</td>
+            <td><span th:text="${importo5Totale}"></span> €</td>
+        </tr>
+    </tbody>
+</table>
 
     <!-- Stampa il totale residuo -->
     <p>Residuo Totale: <span th:text="${residuoTotale}"></span></p>
