@@ -14,7 +14,7 @@ import com.example.mensa.model.Alunno;
 
 public interface AlunnoRepository extends JpaRepository<Alunno,String> , JpaSpecificationExecutor<Alunno>{
 	
-	@Query("SELECT a FROM Alunno a WHERE a.dataIscrizione BETWEEN :dataInizio AND :dataFine")
+	@Query("SELECT a FROM Alunno a WHERE a.dataIscrizione IS NOT NULL AND a.dataIscrizione BETWEEN :dataInizio AND :dataFine")
     List<Alunno> findByDataBetween(Date dataInizio, Date dataFine);
 
 }

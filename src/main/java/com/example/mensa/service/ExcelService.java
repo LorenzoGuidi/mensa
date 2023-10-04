@@ -44,7 +44,7 @@ public class ExcelService {
     }
     
     
-    private void writeHeader() {
+/*  private void writeHeader() {
         sheet = workbook.createSheet("Rendicontazione");
         Row row = sheet.createRow(0);
         CellStyle style = workbook.createCellStyle();
@@ -57,10 +57,11 @@ public class ExcelService {
         this.createCell(row, 2, "Email", style);
         this.createCell(row, 3, "Data iscrizione", style);
     }
+    */
     
     
     private void createCell(Row row, int columnCount, Object valueOfCell, CellStyle style) {
-        sheet.autoSizeColumn(columnCount);
+        // sheet.autoSizeColumn(columnCount);
         Cell cell = row.createCell(columnCount);
         
        
@@ -90,23 +91,7 @@ public class ExcelService {
 
         cell.setCellStyle(style);
     }
-    /*
-    private void write() {
-        int rowCount = 1;
-        CellStyle style = workbook.createCellStyle();
-        XSSFFont font = workbook.createFont();
-        font.setFontHeight(14);
-        style.setFont(font);
-        for (Alunno record: studentList) {
-            Row row = sheet.createRow(rowCount++);
-            int columnCount = 0;
-            createCell(row, columnCount++, record.getNome(), style);
-            createCell(row, columnCount++, record.getCognome(), style);
-            createCell(row, columnCount++, record.getEmail(), style);
-            createCell(row, columnCount++, record.getDataIscrizione(), style);
-        }
-    }
-    */
+
     private void write() {
         int rowCount = 1;
         CellStyle style = workbook.createCellStyle();
@@ -158,14 +143,20 @@ public class ExcelService {
                     e.printStackTrace();
                 }
             }
+            
+        }
+        for(int i = 0; i<98; i++) {
+        	sheet.autoSizeColumn(i);
         }
     }
 
 
     
     public void generateExcelFile(HttpServletResponse response, String i, String f) throws IOException {
-        writeHeader();
+        //writeHeader();
         write();
+        
+       
         
         System.out.println("ecco la data inizio selezionata: " + i);
         
