@@ -287,15 +287,15 @@ public class AdminController {
     	String ImpPagato5 = rec.getParameter("impPagato5");
     	double ImpPagato5Double = Double.parseDouble(ImpPagato5);
     	
-    	double PastoPagato1 = ImpPagato1Double / alunno.getQuotaUtente();
+    	double PastoPagato1 = limitaCifreDopoVirgola(ImpPagato1Double / alunno.getQuotaUtente(),4);
     	alunno.setPastoPagato1(PastoPagato1);
-    	double PastoPagato2 = ImpPagato2Double / alunno.getQuotaUtente();
+    	double PastoPagato2 = limitaCifreDopoVirgola(ImpPagato2Double / alunno.getQuotaUtente(),4);
     	alunno.setPastoPagato2(PastoPagato2);
-    	double PastoPagato3 = ImpPagato3Double / alunno.getQuotaUtente();
+    	double PastoPagato3 = limitaCifreDopoVirgola(ImpPagato3Double / alunno.getQuotaUtente(),4);
     	alunno.setPastoPagato3(PastoPagato3);
-    	double PastoPagato4 = ImpPagato4Double / alunno.getQuotaUtente();
+    	double PastoPagato4 = limitaCifreDopoVirgola(ImpPagato4Double / alunno.getQuotaUtente(),4);
     	alunno.setPastoPagato4(PastoPagato4);
-    	double PastoPagato5 = ImpPagato5Double / alunno.getQuotaUtente();
+    	double PastoPagato5 = limitaCifreDopoVirgola(ImpPagato5Double / alunno.getQuotaUtente(),4);
     	alunno.setPastoPagato5(PastoPagato5);
     	
     	
