@@ -287,15 +287,15 @@ public class AdminController {
     	String ImpPagato5 = rec.getParameter("impPagato5");
     	double ImpPagato5Double = Double.parseDouble(ImpPagato5);
     	
-    	double PastoPagato1 = limitaCifreDopoVirgola(ImpPagato1Double / alunno.getQuotaUtente(),4);
+    	double PastoPagato1 = ImpPagato1Double / alunno.getQuotaUtente();
     	alunno.setPastoPagato1(PastoPagato1);
-    	double PastoPagato2 = limitaCifreDopoVirgola(ImpPagato2Double / alunno.getQuotaUtente(),4);
+    	double PastoPagato2 = ImpPagato2Double / alunno.getQuotaUtente();
     	alunno.setPastoPagato2(PastoPagato2);
-    	double PastoPagato3 = limitaCifreDopoVirgola(ImpPagato3Double / alunno.getQuotaUtente(),4);
+    	double PastoPagato3 = ImpPagato3Double / alunno.getQuotaUtente();
     	alunno.setPastoPagato3(PastoPagato3);
-    	double PastoPagato4 = limitaCifreDopoVirgola(ImpPagato4Double / alunno.getQuotaUtente(),4);
+    	double PastoPagato4 = ImpPagato4Double / alunno.getQuotaUtente();
     	alunno.setPastoPagato4(PastoPagato4);
-    	double PastoPagato5 = limitaCifreDopoVirgola(ImpPagato5Double / alunno.getQuotaUtente(),4);
+    	double PastoPagato5 = ImpPagato5Double / alunno.getQuotaUtente();
     	alunno.setPastoPagato5(PastoPagato5);
     	
     	
@@ -380,8 +380,8 @@ public class AdminController {
     			+ presenzaDicembreDouble + presenzaGennaioDouble + presenzaFebbraioDouble + presenzaMarzoDouble +
     			presenzaAprileDouble + presenzaMaggioDouble + presenzaGiugnoDouble);
     	
-    	alunno.setPastiPagati(PastoPagato1 + PastoPagato2 + PastoPagato3
-    			+ PastoPagato4 + PastoPagato5);
+    	alunno.setPastiPagati(limitaCifreDopoVirgola(PastoPagato1 + PastoPagato2 + PastoPagato3
+    			+ PastoPagato4 + PastoPagato5,4));
     	
     	
     	alunno.setDifferenzaPasti( alunno.getPastiPagati() - alunno.getPresenzeRegistrate());
