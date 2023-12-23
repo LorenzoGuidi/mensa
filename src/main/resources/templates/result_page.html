@@ -65,6 +65,24 @@
     .alunno-codiceFiscale {
       color: #007bff;
     }
+      .table {
+    border: 1px solid #ccc; /* Aggiungi un bordo alla tabella */
+  }
+
+  .table tbody tr:nth-child(odd) {
+    background-color: #f9f9f9; /* Sfondo colorato per le righe dispari */
+  }
+  
+
+.table th, .table td {
+    padding: 15px; /* Spaziatura interna delle celle */
+    text-align: left; /* Allineamento del testo */
+    border-bottom: 1px solid #ddd; /* Linea separatrice tra le righe */
+}
+
+.table th {
+    background-color: #f2f2f2; /* Colore di sfondo per l'intestazione */
+}
   </style>
 </head>
 <body>
@@ -77,5 +95,40 @@
       <span class="alunno-codiceFiscale" th:text="${alunno.telefono+ ' / ' + alunno.telefonoCell}"></span>
     </li>
   </ul>
+  
+  <table class="table">
+    <thead>
+        <tr>
+            <th>Descrizione</th>
+            <th>Importo Totale (€)</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Saldo Totale anno precedente</td>
+            <td><span th:text="${importo1Totale}"></span> €</td>
+        </tr>
+        <tr>
+            <td>Importo 2 Totale</td>
+            <td><span th:text="${importo2Totale}"></span> €</td>
+        </tr>
+        <tr>
+            <td>Importo 3 Totale</td>
+            <td><span th:text="${importo3Totale}"></span> €</td>
+        </tr>
+        <tr>
+            <td>Importo 4 Totale</td>
+            <td><span th:text="${importo4Totale}"></span> €</td>
+        </tr>
+        <tr>
+            <td>Importo 5 Totale</td>
+            <td><span th:text="${importo5Totale}"></span> €</td>
+        </tr>
+        <tr>
+            <td>Residuo Totale</td>
+            <td><span th:text="${residuoTotale}"></span> €</td>
+        </tr>
+    </tbody>
+</table>
 </body>
 </html>
