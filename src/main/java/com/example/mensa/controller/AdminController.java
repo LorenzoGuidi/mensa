@@ -54,8 +54,6 @@ public class AdminController {
 
 
 	
-	@Autowired
-	HttpSession session; 
 	
 	@Autowired
 	AlunnoService as;
@@ -80,7 +78,7 @@ public class AdminController {
     	 
     	ModelAndView mav = new ModelAndView();
     
-    	 session = rec.getSession();
+    	HttpSession session = rec.getSession();
     	String username = session.getAttribute("username").toString();
     	
     	List<Alunno> alunni2 = as.getAllAlunni();
@@ -135,7 +133,7 @@ public class AdminController {
     	
     	ModelAndView mav = new ModelAndView();
     	
-    	session = rec.getSession();
+    	HttpSession session = rec.getSession();
     	
     	List<Alunno> alunniNeg = new ArrayList<Alunno>();
     	List<Alunno> alunni = as.getAllAlunni();
@@ -184,7 +182,7 @@ public class AdminController {
     public ModelAndView cerca(HttpServletRequest rec) throws ParseException {
     	ModelAndView mav = new ModelAndView();
     	
-    	session = rec.getSession();
+    	HttpSession session = rec.getSession();
     	
     	
     	String ricerca = rec.getParameter("ricerca");
@@ -218,6 +216,7 @@ public class AdminController {
     	ar.delete(a);
   
     	
+    	HttpSession session = rec.getSession();
     	
     	
     		Object ricerca = session.getAttribute("ricerca");

@@ -63,8 +63,6 @@ public class UtenteController {
 	@Autowired
 	Environment env;
 	
-	@Autowired
-	HttpSession session;
 	
 
 	@Autowired
@@ -118,7 +116,7 @@ public class UtenteController {
     	 
     	ModelAndView mav = new ModelAndView();
     	
-    	 session = rec.getSession();
+    	HttpSession session = rec.getSession();
     	String username = rec.getParameter("username");
     	String inputPassword = rec.getParameter("password");
 
@@ -158,7 +156,7 @@ public class UtenteController {
     	String cognome = rec.getParameter("cognome");
     	
     	
-		 session = rec.getSession();
+		 HttpSession session = rec.getSession();
 		//mail check system
 //		Random randidtoken = new Random();
 //		Integer idtoken = randidtoken.nextInt(100000000-9000000) - 900000;//il range del id token, x non sforare le 10 cifre
@@ -177,6 +175,16 @@ public class UtenteController {
 				
 				return mav;
 			}
+			//blocco spam
+			if(username.length() > 15 || nome.length() > 15 || cognome.length() > 15) {
+				
+				mod.addAttribute("errorMessage", "campi per la registrazione troppo lunghi , riprova");
+				
+				mav.setViewName("errore");
+				
+				return mav;
+			}
+			////////////////////////////////////
 		}
 		
 		//mail Sender
@@ -217,6 +225,8 @@ public class UtenteController {
    	 
     	ModelAndView mav = new ModelAndView();
     	
+    	HttpSession session = rec.getSession();
+    	
     	String utenteUsername = session.getAttribute("username").toString(); 
     	
     	Utente u = us.findByUsername(utenteUsername);
@@ -225,7 +235,6 @@ public class UtenteController {
     	mav.addObject("alunni", alunni);
     	
     	
-    	HttpSession session = rec.getSession();
     	System.out.println("sessioneee" + " " + session + "\n");
     	System.out.println("sessioneeeUsername" + " " + session.getAttribute("username") + "\n");
    
@@ -264,7 +273,7 @@ public class UtenteController {
 //    	String token = rec.getParameter("token");
     	String username = rec.getParameter("username");
     	
-    	 session = rec.getSession();
+    	HttpSession session = rec.getSession();
 //    	 String tokenPreso = session.getAttribute("token").toString();
 //    	 if(tokenPreso.equals(token)) {
 //  
@@ -289,7 +298,7 @@ public class UtenteController {
       @RequestMapping(value= "/form_page", method = RequestMethod.GET)
     public ModelAndView formPage(HttpServletRequest rec , Model mod) {
     	  ModelAndView mav = new ModelAndView();
-    	  session = rec.getSession();
+    	 HttpSession session = rec.getSession();
     	  String utenteUsername = session.getAttribute("username").toString();
     	Utente u = us.findByUsername(utenteUsername);
 	  
@@ -318,7 +327,7 @@ public class UtenteController {
     @RequestMapping(value= "/iscrizione", method = RequestMethod.POST)
     public ModelAndView iscrivi(Alunno a,@RequestParam boolean privacyOk,HttpServletRequest rec , Model mod) throws ParseException, IllegalArgumentException, IllegalAccessException {
     	ModelAndView mav = new ModelAndView();
-    	session = rec.getSession();
+    	HttpSession session = rec.getSession();
     	String utenteUsername = session.getAttribute("username").toString();  	
     	Utente u = us.findByUsername(utenteUsername);
     	List<Alunno> alunniutente = u.getAlunni();
@@ -575,7 +584,7 @@ public class UtenteController {
 			@RequestParam("username") String username, Model mod) throws ParseException {
 		ModelAndView mav = new ModelAndView();
 		
-		rec.getSession();
+		HttpSession session = rec.getSession();
 		session.setAttribute("username", username);
 //		String getoken = session.getAttribute("token").toString();
 //		if(getoken.equals(token)){
@@ -596,7 +605,7 @@ public class UtenteController {
 	@RequestMapping(value= "/nuovapassword", method = RequestMethod.POST)
 	public ModelAndView recuperapsw_page(HttpServletRequest rec,Model mod) throws ParseException {
 		ModelAndView mav = new ModelAndView();
-		rec.getSession();
+		HttpSession session = rec.getSession();
 		String password = rec.getParameter("password");
 		String passwordconfermata = rec.getParameter("passwordconfermata");
 		
