@@ -386,10 +386,10 @@ public class AdminController {
     	alunno.setDifferenzaPasti( alunno.getPastiPagati() - alunno.getPresenzeRegistrate());
     	
     	
-    	alunno.setDovutoUtente(alunno.getDovutoUtenteOttobre() + alunno.getDovutoUtenteNovembre() + alunno.getDovutoUtenteDicembre() + 
+    	alunno.setDovutoUtente(limitaCifreDopoVirgola(alunno.getDovutoUtenteOttobre() + alunno.getDovutoUtenteNovembre() + alunno.getDovutoUtenteDicembre() +
     			alunno.getDovutoUtenteGennaio() + alunno.getDovutoUtenteFebbraio() + 
     			alunno.getDovutoUtenteMarzo() + alunno.getDovutoUtenteAprile() + 
-    			alunno.getDovutoUtenteMaggio() + alunno.getDovutoUtenteGiugno() );
+    			alunno.getDovutoUtenteMaggio() + alunno.getDovutoUtenteGiugno(), 4 ));
     
     	alunno.setPagatoUtente(ImpPagato1Double + ImpPagato2Double + ImpPagato3Double + ImpPagato4Double + ImpPagato5Double);
     	alunno.setResiduoUtente(alunno.getDifferenzaPasti() * alunno.getQuotaUtente());
