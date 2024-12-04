@@ -392,7 +392,7 @@ public class AdminController {
     			alunno.getDovutoUtenteMaggio() + alunno.getDovutoUtenteGiugno(), 4 ));
     
     	alunno.setPagatoUtente(ImpPagato1Double + ImpPagato2Double + ImpPagato3Double + ImpPagato4Double + ImpPagato5Double);
-    	alunno.setResiduoUtente(alunno.getDifferenzaPasti() * alunno.getQuotaUtente());
+    	alunno.setResiduoUtente(limitaCifreDopoVirgola(alunno.getDifferenzaPasti() * alunno.getQuotaUtente(),4));
     	
     	
         Utente u =	us.findByUsername(username);
