@@ -300,26 +300,26 @@ public class AdminController {
     	
     	String presenzaOttobre = rec.getParameter("presenzaOttobre");
     	double presenzaOttobreDouble = Double.parseDouble(presenzaOttobre);
-    	alunno.setDovutoUtenteOttobre(limitaCifreDopoVirgola(presenzaOttobreDouble*alunno.getQuotaUtente(),4));
-    	alunno.setQuotaComuneOttobre(limitaCifreDopoVirgola((5.3 * 1.04) - alunno.getQuotaUtente(),4));
-    	alunno.setDovutoComuneOttobre(limitaCifreDopoVirgola(presenzaOttobreDouble*alunno.getQuotaComuneOttobre(),4));
+    	alunno.setDovutoUtenteOttobre(limitaCifreDopoVirgola(presenzaOttobreDouble*alunno.getQuotaUtente(),2));
+    	alunno.setQuotaComuneOttobre(limitaCifreDopoVirgola((5.3 * 1.04) - alunno.getQuotaUtente(),2));
+    	alunno.setDovutoComuneOttobre(limitaCifreDopoVirgola(presenzaOttobreDouble*alunno.getQuotaComuneOttobre(),2));
     	
     	
     	
     	String presenzaNovembre = rec.getParameter("presenzaNovembre");
     	double presenzaNovembreDouble = Double.parseDouble(presenzaNovembre);
-    	alunno.setDovutoUtenteNovembre(limitaCifreDopoVirgola(presenzaNovembreDouble*alunno.getQuotaUtente(),4));
-    	alunno.setQuotaComuneNovembre(limitaCifreDopoVirgola((5.3 * 1.04) - alunno.getQuotaUtente(),4));
-    	alunno.setDovutoComuneNovembre(limitaCifreDopoVirgola(presenzaNovembreDouble*alunno.getQuotaComuneNovembre(),4));
+    	alunno.setDovutoUtenteNovembre(limitaCifreDopoVirgola(presenzaNovembreDouble*alunno.getQuotaUtente(),2));
+    	alunno.setQuotaComuneNovembre(limitaCifreDopoVirgola((5.3 * 1.04) - alunno.getQuotaUtente(),2));
+    	alunno.setDovutoComuneNovembre(limitaCifreDopoVirgola(presenzaNovembreDouble*alunno.getQuotaComuneNovembre(),2));
     	
     	
     	
     	
     	String presenzaDicembre = rec.getParameter("presenzaDicembre");
     	double presenzaDicembreDouble = Double.parseDouble(presenzaDicembre);
-    	alunno.setDovutoUtenteDicembre(limitaCifreDopoVirgola(presenzaDicembreDouble*alunno.getQuotaUtente(),4));
-    	alunno.setQuotaComuneDicembre(limitaCifreDopoVirgola((5.3 * 1.04) - alunno.getQuotaUtente(),4));
-    	alunno.setDovutoComuneDicembre(limitaCifreDopoVirgola(presenzaDicembreDouble*alunno.getQuotaComuneDicembre(),4));
+    	alunno.setDovutoUtenteDicembre(limitaCifreDopoVirgola(presenzaDicembreDouble*alunno.getQuotaUtente(),2));
+    	alunno.setQuotaComuneDicembre(limitaCifreDopoVirgola((5.3 * 1.04) - alunno.getQuotaUtente(),2));
+    	alunno.setDovutoComuneDicembre(limitaCifreDopoVirgola(presenzaDicembreDouble*alunno.getQuotaComuneDicembre(),2));
     	
     	
     	
@@ -327,51 +327,51 @@ public class AdminController {
     	
     	String presenzaGennaio = rec.getParameter("presenzaGennaio");
     	double presenzaGennaioDouble = Double.parseDouble(presenzaGennaio);
-    	alunno.setDovutoUtenteGennaio(limitaCifreDopoVirgola(presenzaGennaioDouble*alunno.getQuotaUtente(),4));
-    	alunno.setQuotaComuneGennaio(limitaCifreDopoVirgola((5.3 * 1.04) - alunno.getQuotaUtente(),4));
-    	alunno.setDovutoComuneGennaio(limitaCifreDopoVirgola(presenzaGennaioDouble*alunno.getQuotaComuneGennaio(),4));
+    	alunno.setDovutoUtenteGennaio(limitaCifreDopoVirgola(presenzaGennaioDouble*alunno.getQuotaUtente(),2));
+    	alunno.setQuotaComuneGennaio(limitaCifreDopoVirgola((5.3 * 1.04) - alunno.getQuotaUtente(),2));
+    	alunno.setDovutoComuneGennaio(limitaCifreDopoVirgola(presenzaGennaioDouble*alunno.getQuotaComuneGennaio(),2));
     	
     	
     	
     	
     	String presenzaFebbraio = rec.getParameter("presenzaFebbraio");
     	double presenzaFebbraioDouble = Double.parseDouble(presenzaFebbraio);
-    	alunno.setDovutoUtenteFebbraio(limitaCifreDopoVirgola(presenzaFebbraioDouble*alunno.getQuotaUtente(),4));
-    	alunno.setQuotaComuneFebbraio(limitaCifreDopoVirgola((5.3 * 1.04) - alunno.getQuotaUtente(),4));
-    	alunno.setDovutoComuneFebbraio(limitaCifreDopoVirgola(presenzaFebbraioDouble*alunno.getQuotaComuneFebbraio(),4));
+    	alunno.setDovutoUtenteFebbraio(limitaCifreDopoVirgola(presenzaFebbraioDouble*alunno.getQuotaUtente(),2));
+    	alunno.setQuotaComuneFebbraio(limitaCifreDopoVirgola((5.3 * 1.04) - alunno.getQuotaUtente(),2));
+    	alunno.setDovutoComuneFebbraio(limitaCifreDopoVirgola(presenzaFebbraioDouble*alunno.getQuotaComuneFebbraio(),2));
     	
     	
     	
     	
     	String presenzaMarzo = rec.getParameter("presenzaMarzo");
     	double presenzaMarzoDouble = Double.parseDouble(presenzaMarzo);
-    	alunno.setDovutoUtenteMarzo(limitaCifreDopoVirgola(presenzaMarzoDouble*alunno.getQuotaUtente(),4));
-    	alunno.setQuotaComuneMarzo(limitaCifreDopoVirgola((5.3 * 1.04) - alunno.getQuotaUtente(),4));
-    	alunno.setDovutoComuneMarzo(limitaCifreDopoVirgola(presenzaMarzoDouble*alunno.getQuotaComuneMarzo(),4));
+    	alunno.setDovutoUtenteMarzo(limitaCifreDopoVirgola(presenzaMarzoDouble*alunno.getQuotaUtente(),2));
+    	alunno.setQuotaComuneMarzo(limitaCifreDopoVirgola((5.3 * 1.04) - alunno.getQuotaUtente(),2));
+    	alunno.setDovutoComuneMarzo(limitaCifreDopoVirgola(presenzaMarzoDouble*alunno.getQuotaComuneMarzo(),2));
     	
     	
     	
     	String presenzaAprile = rec.getParameter("presenzaAprile");
     	double presenzaAprileDouble = Double.parseDouble(presenzaAprile);
-    	alunno.setDovutoUtenteAprile(limitaCifreDopoVirgola(presenzaAprileDouble*alunno.getQuotaUtente(),4));
-    	alunno.setQuotaComuneAprile(limitaCifreDopoVirgola((5.3 * 1.04) - alunno.getQuotaUtente(),4));
-    	alunno.setDovutoComuneAprile(limitaCifreDopoVirgola(presenzaAprileDouble*alunno.getQuotaComuneAprile(),4));
+    	alunno.setDovutoUtenteAprile(limitaCifreDopoVirgola(presenzaAprileDouble*alunno.getQuotaUtente(),2));
+    	alunno.setQuotaComuneAprile(limitaCifreDopoVirgola((5.3 * 1.04) - alunno.getQuotaUtente(),2));
+    	alunno.setDovutoComuneAprile(limitaCifreDopoVirgola(presenzaAprileDouble*alunno.getQuotaComuneAprile(),2));
     	
     	
     	
     	String presenzaMaggio = rec.getParameter("presenzaMaggio");
     	double presenzaMaggioDouble = Double.parseDouble(presenzaMaggio);
-    	alunno.setDovutoUtenteMaggio(limitaCifreDopoVirgola(presenzaMaggioDouble*alunno.getQuotaUtente(),4));
-    	alunno.setQuotaComuneMaggio(limitaCifreDopoVirgola((5.3 * 1.04) - alunno.getQuotaUtente(),4));
-    	alunno.setDovutoComuneMaggio(limitaCifreDopoVirgola(presenzaMaggioDouble*alunno.getQuotaComuneMaggio(),4));
+    	alunno.setDovutoUtenteMaggio(limitaCifreDopoVirgola(presenzaMaggioDouble*alunno.getQuotaUtente(),2));
+    	alunno.setQuotaComuneMaggio(limitaCifreDopoVirgola((5.3 * 1.04) - alunno.getQuotaUtente(),2));
+    	alunno.setDovutoComuneMaggio(limitaCifreDopoVirgola(presenzaMaggioDouble*alunno.getQuotaComuneMaggio(),2));
     	
     	
     	
     	String presenzaGiugno = rec.getParameter("presenzaGiugno");
     	double presenzaGiugnoDouble = Double.parseDouble(presenzaGiugno);
-    	alunno.setDovutoUtenteGiugno(limitaCifreDopoVirgola(presenzaGiugnoDouble*alunno.getQuotaUtente(),4));
-    	alunno.setQuotaComuneGiugno(limitaCifreDopoVirgola((5.3 * 1.04) - alunno.getQuotaUtente(),4));
-    	alunno.setDovutoComuneGiugno(limitaCifreDopoVirgola(presenzaGiugnoDouble*alunno.getQuotaComuneGiugno(),4));
+    	alunno.setDovutoUtenteGiugno(limitaCifreDopoVirgola(presenzaGiugnoDouble*alunno.getQuotaUtente(),2));
+    	alunno.setQuotaComuneGiugno(limitaCifreDopoVirgola((5.3 * 1.04) - alunno.getQuotaUtente(),2));
+    	alunno.setDovutoComuneGiugno(limitaCifreDopoVirgola(presenzaGiugnoDouble*alunno.getQuotaComuneGiugno(),2));
  
     	
     	
@@ -380,7 +380,7 @@ public class AdminController {
     			presenzaAprileDouble + presenzaMaggioDouble + presenzaGiugnoDouble);
     	
     	alunno.setPastiPagati(limitaCifreDopoVirgola(PastoPagato1 + PastoPagato2 + PastoPagato3
-    			+ PastoPagato4 + PastoPagato5,4));
+    			+ PastoPagato4 + PastoPagato5,2));
     	
     	
     	alunno.setDifferenzaPasti( alunno.getPastiPagati() - alunno.getPresenzeRegistrate());
@@ -389,10 +389,10 @@ public class AdminController {
     	alunno.setDovutoUtente(limitaCifreDopoVirgola(alunno.getDovutoUtenteOttobre() + alunno.getDovutoUtenteNovembre() + alunno.getDovutoUtenteDicembre() +
     			alunno.getDovutoUtenteGennaio() + alunno.getDovutoUtenteFebbraio() + 
     			alunno.getDovutoUtenteMarzo() + alunno.getDovutoUtenteAprile() + 
-    			alunno.getDovutoUtenteMaggio() + alunno.getDovutoUtenteGiugno(), 4 ));
+    			alunno.getDovutoUtenteMaggio() + alunno.getDovutoUtenteGiugno(), 2 ));
     
     	alunno.setPagatoUtente(ImpPagato1Double + ImpPagato2Double + ImpPagato3Double + ImpPagato4Double + ImpPagato5Double);
-    	alunno.setResiduoUtente(limitaCifreDopoVirgola(alunno.getDifferenzaPasti() * alunno.getQuotaUtente(),4));
+    	alunno.setResiduoUtente(limitaCifreDopoVirgola(alunno.getDifferenzaPasti() * alunno.getQuotaUtente(),2));
     	
     	
         Utente u =	us.findByUsername(username);
