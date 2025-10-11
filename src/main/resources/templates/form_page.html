@@ -192,12 +192,13 @@
     <span for="quotaUtente">Quota:</span>
     	<span class="info-icon">?</span>
      	<div class="info-content">
-    		Qui va inserito il valore calcolato in base al rapporto ISEE (3.20 o 4.00)
+    		Qui va inserito il valore calcolato in base al rapporto ISEE (3.70, 4.60 o 5.00)
     	</div>
     </div>
     	<select id="quotaUtente" name="quotaUtente" required>
-  			<option value="3.20" th:selected="${alunno.quotaUtente == '3.20'}">3.20</option>
-  			<option value="4.00" th:selected="${alunno.quotaUtente == '4.00'}">4.00</option>
+  			<option value="3.70" th:selected="${alunno.quotaUtente == '3.70'}">Fascia 1 fino a 12.400,00 € costo pasto 3,70€</option>
+  			<option value="4.60" th:selected="${alunno.quotaUtente == '4.60'}">Fascia 2 da 12.400,01 € a 27.000,00 costo pasto 4,60€</option>
+			<option value="5.00" th:selected="${alunno.quotaUtente == '5.00'}">Fascia 3 oltre 27.000,01 € costo pasto 5,00€</option>
   		</select>
   
 
